@@ -55,6 +55,9 @@ do site. O hub será o `index.html`.
 O arquivo `.nojekyll` já está incluído: ele impede o GitHub Pages de ignorar
 as pastas `_hub/` e `_motion/`, que começam com underscore.
 
+**Publicado em:** https://naagamboa.github.io/nl-sites-clientes/  
+**Repositório:** https://github.com/naagamboa/nl-sites-clientes
+
 ## Fontes e verificação
 
 - **Eleve NeoPilates** — Cidade Baixa, Porto Alegre. Serviços, endereço,

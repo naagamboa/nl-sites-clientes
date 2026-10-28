@@ -86,7 +86,7 @@
       <div class="container hero__inner">
         <div class="hero__meta">
           <p class="eyebrow"><span class="dot"></span> Pilates · Yoga · Terapias</p>
-          <p class="hero__meta-right">Jardim Planalto · Porto Alegre</p>
+          <p class="hero__meta-right"><span class="meta-long">Jardim Planalto · Porto Alegre</span><span class="meta-short">Jardim Planalto · POA</span></p>
         </div>
 
         <div class="hero__grid">
@@ -205,10 +205,24 @@
           </figure>
           <div class="space__copy" data-reveal data-delay="1">
             <p class="space__big">Corpo, mente e alma no mesmo lugar.</p>
-            <p>O Jolie fica no Jardim Planalto, em salas 12 a 14. A entrada do prédio pode gerar dúvida: confirme pelo WhatsApp antes de ir.</p>
+            <p>O Jolie fica no Jardim Planalto, em salas 12 a 14. A entrada do prédio é por essas salas; se tiver dúvida, confirme pelo WhatsApp antes de ir.</p>
             <div class="space__address">
               <p>Av. Tenente Ary Tarrago, 1680<br>Salas 12–14 · Jardim Planalto<br>Porto Alegre / RS</p>
-              <a class="link-arrow link-arrow--ink" href="https://www.google.com/maps/search/?api=1&query=Av.+Tenente+Ary+Tarrago,+1680,+Porto+Alegre+-+RS" target="_blank" rel="noopener">Abrir no Google Maps <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <div class="space__map-actions">
+                <a class="link-arrow link-arrow--ink" href="https://www.google.com/maps/search/?api=1&query=Av.+Tenente+Ary+Tarrago,+1680,+Porto+Alegre+-+RS" target="_blank" rel="noopener">Abrir no Google Maps <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <button class="map-toggle" type="button" data-map-toggle data-label-open="Ver mapa" data-label-close="Fechar mapa" aria-expanded="false" aria-controls="jolie-map">
+                  <span class="map-toggle__dot" aria-hidden="true"></span>
+                  <span data-map-label>Ver mapa</span>
+                </button>
+              </div>
+              <div class="space__map" id="jolie-map" hidden>
+                <iframe
+                  title="Mapa do Jolie Espaço de Vida na Av. Tenente Ary Tarrago, 1680, Porto Alegre"
+                  data-map-src="https://www.google.com/maps?q=Av.+Tenente+Ary+Tarrago,+1680,+Porto+Alegre+-+RS&output=embed&hl=pt-BR&z=16"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen></iframe>
+              </div>
             </div>
             <p class="space__hours">Horários variam por modalidade. Confirme a agenda no WhatsApp ou no Calendly.</p>
             <a class="btn btn--plum" href="https://linktr.ee/jolieespacodevida" target="_blank" rel="noopener">Falar com a Jolie <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>

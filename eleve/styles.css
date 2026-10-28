@@ -2476,12 +2476,41 @@ main section[id] {
   font-size: 12px;
 }
 
-.visit__map-frame {
+.visit__map-stage {
   position: relative;
   height: clamp(260px, 31vw, 380px);
   margin-top: 14px;
   overflow: hidden;
   border: 1px solid rgba(246, 241, 228, 0.2);
+  background: var(--ink-soft);
+}
+
+.visit__map-art {
+  position: absolute;
+  inset: 0;
+}
+
+.visit__map-art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.visit__map-label {
+  position: absolute;
+  left: 17px;
+  bottom: 17px;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 228, 0.7);
+}
+
+.visit__map-frame {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
   background: var(--ink-soft);
 }
 
@@ -2491,6 +2520,33 @@ main section[id] {
   height: 100%;
   border: 0;
   filter: grayscale(0.9) contrast(1.04) brightness(0.92);
+}
+
+.visit__map-toggle {
+  position: absolute;
+  z-index: 3;
+  right: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--butter);
+  background: rgba(23, 21, 18, 0.72);
+  color: var(--butter);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.visit__map-toggle:hover {
+  background: var(--butter);
+  color: var(--ink);
 }
 
 .visit__map-note {
@@ -2514,7 +2570,17 @@ main section[id] {
     gap: 10px;
   }
 
-  .visit__map-frame {
+  .visit__map-stage {
     height: 290px;
+  }
+
+  .visit__map-label {
+    top: 15px;
+    bottom: auto;
+  }
+
+  .visit__map-toggle {
+    right: 12px;
+    bottom: 12px;
   }
 }

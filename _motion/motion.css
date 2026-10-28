@@ -125,6 +125,13 @@ body[data-motion="zm"] {
   --m-spot: rgba(216, 180, 106, 0.14);
 }
 
+/* Alvos de toque ---------------------------------------------------------- */
+
+.menu-btn,
+[data-map-toggle] {
+  min-height: 44px;
+}
+
 /* Cursor ------------------------------------------------------------------ */
 
 html.has-motion.has-cursor,

@@ -313,7 +313,7 @@
           <figcaption><span>03</span> Faixas e suspensão</figcaption>
         </figure>
         <figure class="gallery__item" data-reveal data-delay="3">
-          <img src="assets/studio-04.jpg" alt="Fachada do Eleve NeoPilates na Av. Loureiro da Silva, com toldo amarelo e vitrine" width="1280" height="720" loading="lazy" decoding="async">
+          <img src="assets/studio-04.jpg" alt="Fachada do Eleve NeoPilates na Av. Loureiro da Silva, com toldo e vitrine" width="840" height="720" loading="lazy" decoding="async">
           <figcaption><span>04</span> Nossa fachada</figcaption>
         </figure>
 
@@ -420,7 +420,7 @@
         </div>
 
         <figure class="visit__photo" data-reveal data-delay="1">
-          <img src="assets/studio-04.jpg" alt="Fachada do Eleve NeoPilates com toldo, vitrine e o número 1870" width="1280" height="720" loading="lazy" decoding="async">
+          <img src="assets/studio-04.jpg" alt="Fachada do Eleve NeoPilates com toldo e vitrine na Av. Loureiro da Silva" width="840" height="720" loading="lazy" decoding="async">
           <figcaption>Eleve NeoPilates · Av. Loureiro da Silva, 1870</figcaption>
         </figure>
       </div>
@@ -430,14 +430,40 @@
           <p class="eyebrow eyebrow--light">O ponto no mapa</p>
           <a class="link-arrow link-arrow--butter" href="https://www.google.com/maps/dir/?api=1&destination=Av.+Loureiro+da+Silva,+1870,+Cidade+Baixa,+Porto+Alegre+-+RS" target="_blank" rel="noopener">Abrir no Google Maps <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <div class="visit__map-frame">
-          <iframe
-            title="Mapa do Eleve NeoPilates na Av. Loureiro da Silva, 1870, Porto Alegre"
-            src="https://www.google.com/maps?q=Av.+Loureiro+da+Silva,+1870,+Cidade+Baixa,+Porto+Alegre+-+RS&output=embed&hl=pt-BR&z=16"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen></iframe>
+        <div class="visit__map-stage">
+          <div class="visit__map-art" aria-hidden="true">
+            <svg viewBox="0 0 760 380" preserveAspectRatio="xMidYMid slice">
+              <rect width="760" height="380" fill="#322e27"/>
+              <g stroke="rgba(246, 241, 228, 0.14)" stroke-width="1">
+                <path d="M0 76h760M0 152h760M0 228h760M0 304h760"/>
+                <path d="M95 0v380M190 0v380M285 0v380M380 0v380M475 0v380M570 0v380M665 0v380"/>
+              </g>
+              <g stroke="rgba(255, 232, 74, 0.52)" stroke-width="2" fill="none">
+                <path d="M-20 260C120 260 160 190 300 190s220 60 480 20"/>
+                <path d="M80 400c40-100 180-120 300-160s240-90 380-70"/>
+              </g>
+              <g fill="#f6f1e4" opacity="0.52" font-family="monospace" font-size="9" letter-spacing="1">
+                <text x="24" y="30">LOUREIRO DA SILVA</text>
+                <text x="548" y="350">CIDADE BAIXA</text>
+              </g>
+              <circle cx="380" cy="190" r="18" fill="none" stroke="#e8452f" opacity="0.45"/>
+              <circle cx="380" cy="190" r="7" fill="#e8452f"/>
+            </svg>
+            <span class="visit__map-label">Av. Loureiro da Silva, 1870</span>
+          </div>
+          <div class="visit__map-frame" id="eleve-map" hidden>
+            <iframe
+              title="Mapa do Eleve NeoPilates na Av. Loureiro da Silva, 1870, Porto Alegre"
+              data-map-src="https://www.google.com/maps?q=Av.+Loureiro+da+Silva,+1870,+Cidade+Baixa,+Porto+Alegre+-+RS&output=embed&hl=pt-BR&z=16"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+          <button class="visit__map-toggle" type="button" data-map-toggle data-label-open="Ver mapa interativo" data-label-close="Fechar mapa" aria-expanded="false" aria-controls="eleve-map">
+            <span data-map-label>Ver mapa interativo</span>
+          </button>
         </div>
-        <p class="visit__map-note">Mapa interativo do Google Maps. <a href="https://www.google.com/maps/dir/?api=1&destination=Av.+Loureiro+da+Silva,+1870,+Cidade+Baixa,+Porto+Alegre+-+RS" target="_blank" rel="noopener">Abrir rota no app</a></p>
+        <p class="visit__map-note">Mapa carregado sob demanda. <a href="https://www.google.com/maps/dir/?api=1&destination=Av.+Loureiro+da+Silva,+1870,+Cidade+Baixa,+Porto+Alegre+-+RS" target="_blank" rel="noopener">Abrir rota no app</a></p>
       </div>
 
       <div class="visit__strip container">

@@ -276,7 +276,7 @@ button { font: inherit; color: inherit; }
 @media (max-width: 560px) {
   .hero__meta { align-items: flex-start; flex-direction: column; gap: 6px; }
   .hero__meta-right { font-size: 7px; }
-  .hero__title { font-size: clamp(58px, 17.4vw, 88px); }
+  .hero__title { font-size: clamp(42px, 13.2vw, 64px); }
   .hero__lead { font-size: 14px; }
   .hero__actions { align-items: flex-start; flex-direction: column; }
   .hero__selector { align-items: flex-start; flex-direction: column; gap: 8px; }

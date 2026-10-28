@@ -8,6 +8,11 @@
   const site = body.dataset.motion || 'site';
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   const fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+  /* O cursor próprio não é assinatura de todos os projetos.
+     Fica só onde o gesto combina com a direção: barbearia editorial
+     e os dois estúdios automotivos de acabamento. Nos sites mais calmos,
+     o cursor nativo é a escolha certa. */
+  const cursorSites = new Set(['artoflife', 'bravus', 'zm']);
 
   /* Mapa dinâmico — funcional também com movimento reduzido. */
 
@@ -108,7 +113,7 @@
 
   /* Cursor -------------------------------------------------------------- */
 
-  if (fine.matches) {
+  if (fine.matches && cursorSites.has(site)) {
     const cursor = document.createElement('div');
     cursor.className = 'm-cursor';
     cursor.setAttribute('aria-hidden', 'true');

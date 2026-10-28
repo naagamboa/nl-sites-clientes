@@ -659,7 +659,8 @@ button { font: inherit; color: inherit; }
 .studio__photo--tall { grid-row: span 2; }
 .studio__photo img { width: 100%; height: 100%; object-fit: cover; }
 .studio__photo--tall img { aspect-ratio: 4 / 5; }
-.studio__photo:not(.studio__photo--tall) img { aspect-ratio: 4 / 3; }
+.studio__photo:not(.studio__photo--tall) { height: 100%; }
+.studio__photo:not(.studio__photo--tall) img { aspect-ratio: auto; }
 
 .studio__photo figcaption {
   position: absolute;
@@ -675,12 +676,37 @@ button { font: inherit; color: inherit; }
 }
 
 .studio__note {
+  position: relative;
   grid-column: 2 / -1;
-  align-self: end;
-  padding: 22px;
+  grid-row: 2;
+  align-self: stretch;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  overflow: hidden;
+  padding: clamp(22px, 2.4vw, 34px);
   border: 1px solid var(--line-dark);
+  background: var(--paper-2);
   font-size: 12px;
   line-height: 1.6;
+}
+
+.studio__note > *:not(.studio__note-mark) {
+  position: relative;
+  z-index: 1;
+}
+
+.studio__note-mark {
+  position: absolute;
+  right: -8px;
+  bottom: -52px;
+  font-family: var(--display);
+  font-size: clamp(190px, 21vw, 300px);
+  line-height: 1;
+  color: rgba(7, 9, 8, 0.06);
+  pointer-events: none;
 }
 
 .studio__note-label {
@@ -692,7 +718,7 @@ button { font: inherit; color: inherit; }
   color: #4e6500;
 }
 
-.studio__note .link-arrow { margin-top: 18px; font-size: 8px; }
+.studio__note .link-arrow { margin-top: auto; font-size: 8px; }
 
 /* Serviços */
 
@@ -1121,7 +1147,9 @@ button { font: inherit; color: inherit; }
   .studio__grid { grid-template-columns: 1fr 1fr; }
   .studio__photo--tall { grid-column: 1 / -1; grid-row: auto; }
   .studio__photo--tall img { aspect-ratio: 16 / 10; }
-  .studio__note { grid-column: 1 / -1; }
+  .studio__photo:not(.studio__photo--tall) { height: auto; }
+  .studio__photo:not(.studio__photo--tall) img { aspect-ratio: 4 / 3; }
+  .studio__note { grid-column: 1 / -1; grid-row: auto; }
   .services__head { grid-template-columns: 1fr; gap: 20px; }
   .services__lead { justify-self: start; }
   .services__layout { grid-template-columns: 1fr; }

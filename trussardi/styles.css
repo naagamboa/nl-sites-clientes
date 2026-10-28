@@ -2014,7 +2014,7 @@ svg {
 
   .hero__title {
     font-size: clamp(3.7rem, 10.6vw, 6rem);
-    max-width: 8ch;
+    max-width: none;
     text-wrap: nowrap;
   }
 

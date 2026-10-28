@@ -97,21 +97,21 @@ as pastas `_hub/` e `_motion/`, que começam com underscore.
   fixo porque não há um número público confirmado.
 - **Top Sul Lavagem e Higienização** — Cristal e Glória, Porto Alegre. WhatsApp,
   Instagram, Linktree, serviços e agenda Lavacar Fácil confirmados. A unidade
-  Cristal tem endereço e mapa. A unidade Glória é tratada com cautela: Linktree
-  e Instagram publicam endereços diferentes, então o site mostra as duas
-  referências e pede confirmação pelo WhatsApp, sem escolher uma versão.
+  Cristal tem endereço e mapa. A unidade Glória pede confirmação de endereço e
+  horário pelo WhatsApp antes da visita.
 - **ZM Estética Automotiva** — Lomba do Pinheiro, Porto Alegre. Endereço,
   WhatsApp, Instagram, Linktree e serviços confirmados (lavagem detalhada,
-  polimento técnico, vitrificação e higienização interna). Horários e preços não
-  são publicados porque não há uma tabela oficial confirmada.
+  polimento técnico, vitrificação e higienização interna). Horários e valores
+  são combinados no atendimento, sem tabela pública inventada.
 
 ## Interação e movimento
 
 As doze páginas usam a camada `_motion/`:
 
 - abertura de página com o nome da marca;
-- cursor próprio (desktop, ponteiro fino), com restauração do cursor nativo em
-  movimento reduzido ou alto contraste;
+- cursor próprio apenas onde a direção pede: Art of Life (barbearia editorial)
+  e Bravus e ZM (os dois estúdios automotivos de acabamento). Nos demais, o
+  cursor nativo é mantido de propósito;
 - botões magnéticos e tilt 3D nas imagens;
 - brilho que acompanha o mouse em cartões e painéis;
 - barra de progresso de leitura;
@@ -122,15 +122,16 @@ cursor é ocultado sobre iframes para não congelar sobre os mapas.
 
 ## Mapas
 
-- **Eleve**: mapa interativo embutido na seção Visite.
+- **Eleve**: mapa ilustrado na seção Visite; o Google Maps é carregado sob
+  demanda, com endereço e rota sempre visíveis.
 - **Santos** e **Trussardi**: mapa do Google carregado sob demanda.
 - **Art of Life**: cada endereço das quatro unidades abre a rota no Google Maps.
 - **Bravus**, **Call**, **MAP**, **MOV**, **Top Sul** e **ZM**: mapa carregado
   sob demanda no bloco de contato/endereço.
-- **Jolie**: endereço com link para o Google Maps e aviso para confirmar a
-  entrada do prédio pelo WhatsApp.
-- **Top Sul**: mapa apenas da unidade Cristal; a unidade Glória tem duas
-  referências de endereço publicadas e um aviso de confirmação.
+- **Jolie**: endereço com mapa do Google carregado sob demanda e aviso para
+  confirmar a entrada do prédio pelo WhatsApp.
+- **Top Sul**: mapa apenas da unidade Cristal; a unidade Glória confirma
+  endereço e horário pelo WhatsApp antes da visita.
 - **Du Lops**: sem mapa porque o endereço exato não é público; o contato
   informa endereço e horário.
 

@@ -52,6 +52,9 @@ Compatível com qualquer hospedagem estática — Netlify, Cloudflare Pages,
 GitHub Pages ou Vercel. Publique o conteúdo de `nl-sites-clientes/` como raiz
 do site. O hub será o `index.html`.
 
+O arquivo `.nojekyll` já está incluído: ele impede o GitHub Pages de ignorar
+as pastas `_hub/` e `_motion/`, que começam com underscore.
+
 ## Fontes e verificação
 
 - **Eleve NeoPilates** — Cidade Baixa, Porto Alegre. Serviços, endereço,

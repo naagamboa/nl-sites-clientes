@@ -132,7 +132,7 @@ svg { display: block; }
 .nav__links a:hover { color: var(--ivory); }
 .nav__links a:hover::after { transform: scaleX(1); }
 .nav__cta { margin-left: 2px; }
-.menu-btn { display: none; align-items: center; gap: 9px; margin-left: auto; border: 0; background: none; color: var(--ivory); font-family: var(--mono); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; }
+.menu-btn { display: none; align-items: center; gap: 9px; min-height: 44px; margin-left: auto; padding: 0 4px; border: 0; background: none; color: var(--ivory); font-family: var(--mono); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; }
 .menu-btn__icon { display: grid; gap: 5px; width: 22px; }
 .menu-btn__icon i { display: block; height: 1px; background: currentColor; transition: transform 0.25s ease; }
 .menu-btn[aria-expanded="true"] .menu-btn__icon i:first-child { transform: translateY(3px) rotate(45deg); }

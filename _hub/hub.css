@@ -266,6 +266,13 @@ a { color: inherit; text-decoration: none; }
 
 .card:hover .card__media img { transform: scale(1.02); }
 
+.card--jolie .card__media img,
+.card--topsul .card__media img,
+.card--zm .card__media img,
+.card--jolie .card__mobile img,
+.card--topsul .card__mobile img,
+.card--zm .card__mobile img { object-position: 7% top; }
+
 .card__info {
   display: flex;
   flex-direction: column;

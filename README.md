@@ -1,6 +1,6 @@
 # NL Sites · Clientes
 
-Nove sites estáticos e um hub de cases, todos em HTML, CSS e JavaScript puro,
+Doze sites estáticos e um hub de cases, todos em HTML, CSS e JavaScript puro,
 com fontes self-hosted e imagens locais.
 
 ## Estrutura
@@ -17,6 +17,9 @@ nl-sites-clientes/
 ├── map/                    # MAP Personal Car
 ├── dulops/                 # Du Lops Estética Automotiva
 ├── mov/                    # MOV Treinamento Funcional
+├── jolie/                  # Jolie Espaço de Vida
+├── topsul/                 # Top Sul Lavagem e Higienização
+├── zm/                     # ZM Estética Automotiva
 ├── _hub/
 │   ├── hub.css
 │   └── assets/
@@ -81,10 +84,24 @@ do site. O hub será o `index.html`.
   WhatsApp, Instagram, serviços e foco em treinos personalizados confirmados.
   Horários são informados no WhatsApp para evitar divulgar uma grade que pode
   mudar.
+- **Jolie Espaço de Vida** — Jardim Planalto, Porto Alegre. Endereço, canais de
+  Pilates, Yoga e terapias, Calendly, Instagram e Linktree confirmados. A
+  primeira aula é tratada como avaliativa, nunca como gratuita. O site avisa que
+  a entrada do prédio deve ser confirmada pelo WhatsApp e não publica telefone
+  fixo porque não há um número público confirmado.
+- **Top Sul Lavagem e Higienização** — Cristal e Glória, Porto Alegre. WhatsApp,
+  Instagram, Linktree, serviços e agenda Lavacar Fácil confirmados. A unidade
+  Cristal tem endereço e mapa. A unidade Glória é tratada com cautela: Linktree
+  e Instagram publicam endereços diferentes, então o site mostra as duas
+  referências e pede confirmação pelo WhatsApp, sem escolher uma versão.
+- **ZM Estética Automotiva** — Lomba do Pinheiro, Porto Alegre. Endereço,
+  WhatsApp, Instagram, Linktree e serviços confirmados (lavagem detalhada,
+  polimento técnico, vitrificação e higienização interna). Horários e preços não
+  são publicados porque não há uma tabela oficial confirmada.
 
 ## Interação e movimento
 
-As nove páginas usam a camada `_motion/`:
+As doze páginas usam a camada `_motion/`:
 
 - abertura de página com o nome da marca;
 - cursor próprio (desktop, ponteiro fino), com restauração do cursor nativo em
@@ -102,8 +119,12 @@ cursor é ocultado sobre iframes para não congelar sobre os mapas.
 - **Eleve**: mapa interativo embutido na seção Visite.
 - **Santos** e **Trussardi**: mapa do Google carregado sob demanda.
 - **Art of Life**: cada endereço das quatro unidades abre a rota no Google Maps.
-- **Bravus**, **Call**, **MAP** e **MOV**: mapa carregado sob demanda no bloco
-  de contato/endereço.
+- **Bravus**, **Call**, **MAP**, **MOV**, **Top Sul** e **ZM**: mapa carregado
+  sob demanda no bloco de contato/endereço.
+- **Jolie**: endereço com link para o Google Maps e aviso para confirmar a
+  entrada do prédio pelo WhatsApp.
+- **Top Sul**: mapa apenas da unidade Cristal; a unidade Glória tem duas
+  referências de endereço publicadas e um aviso de confirmação.
 - **Du Lops**: sem mapa porque o endereço exato não é público; o contato
   informa endereço e horário.
 
@@ -112,7 +133,7 @@ Google Maps quando há endereço confirmado.
 
 ## QA
 
-As nove páginas passaram no Lighthouse com 100 em acessibilidade, boas práticas
+As doze páginas passaram no Lighthouse com 100 em acessibilidade, boas práticas
 e SEO. Também foram verificados:
 
 - links internos, âncoras e assets locais;

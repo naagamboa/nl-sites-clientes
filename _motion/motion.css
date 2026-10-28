@@ -98,6 +98,33 @@ body[data-motion="mov"] {
   --m-spot: rgba(184, 255, 46, 0.12);
 }
 
+body[data-motion="jolie"] {
+  --m-cursor: #7c5f8b;
+  --m-progress: #7c5f8b;
+  --m-intro-bg: #43303f;
+  --m-intro-fg: #f8f2e7;
+  --m-intro-font: var(--display);
+  --m-spot: rgba(124, 95, 139, 0.16);
+}
+
+body[data-motion="topsul"] {
+  --m-cursor: #35c7ef;
+  --m-progress: #35c7ef;
+  --m-intro-bg: #051018;
+  --m-intro-fg: #8fe8ff;
+  --m-intro-font: var(--sans);
+  --m-spot: rgba(53, 199, 239, 0.12);
+}
+
+body[data-motion="zm"] {
+  --m-cursor: #d8b46a;
+  --m-progress: #d8b46a;
+  --m-intro-bg: #0a0908;
+  --m-intro-fg: #d8b46a;
+  --m-intro-font: var(--display);
+  --m-spot: rgba(216, 180, 106, 0.14);
+}
+
 /* Cursor ------------------------------------------------------------------ */
 
 html.has-motion.has-cursor,
@@ -341,6 +368,12 @@ body[data-motion="call"] .hero__frame.m-tilt { --m-tilt-scale: 1.01; }
 body[data-motion="map"] .hero__frame.m-tilt { --m-tilt-scale: 1.01; }
 body[data-motion="dulops"] .hero__frame.m-tilt { --m-tilt-scale: 1.01; }
 body[data-motion="mov"] .hero__frame.m-tilt { --m-tilt-scale: 1.01; }
+body[data-motion="jolie"] .hero__frame.m-tilt { --m-tilt-scale: 1.012; }
+body[data-motion="jolie"] .space__photo img.m-tilt { --m-tilt-scale: 1.04; }
+body[data-motion="topsul"] .hero__frame.m-tilt { --m-tilt-scale: 1.012; }
+body[data-motion="topsul"] .unit__photo img.m-tilt { --m-tilt-scale: 1.04; }
+body[data-motion="zm"] .hero__frame.m-tilt { --m-tilt-scale: 1.012; }
+body[data-motion="zm"] .gallery__item img.m-tilt { --m-tilt-scale: 1.045; }
 
 /* Spotlight --------------------------------------------------------------- */
 

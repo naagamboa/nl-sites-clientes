@@ -9,6 +9,41 @@
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   const fine = window.matchMedia('(hover: hover) and (pointer: fine)');
 
+  /* Mapa dinâmico — funcional também com movimento reduzido. */
+
+  document.querySelectorAll('[data-map-toggle]').forEach((button) => {
+    const target = document.getElementById(button.getAttribute('aria-controls'));
+    if (!target) return;
+
+    button.addEventListener('click', () => {
+      const iframe = target.querySelector('iframe[data-map-src]');
+      if (iframe && !iframe.getAttribute('src')) {
+        iframe.setAttribute('src', iframe.dataset.mapSrc);
+      }
+
+      const opening = target.hasAttribute('hidden');
+      if (opening) {
+        target.removeAttribute('hidden');
+      } else {
+        target.setAttribute('hidden', '');
+      }
+
+      button.setAttribute('aria-expanded', opening ? 'true' : 'false');
+      const label = button.querySelector('[data-map-label]');
+      if (label) {
+        label.textContent = opening
+          ? button.dataset.labelClose || 'Fechar mapa'
+          : button.dataset.labelOpen || 'Ver mapa';
+      }
+
+      const panel = button.closest('.visit__panel-map');
+      if (panel) panel.classList.toggle('is-live', opening);
+
+      const host = button.closest('[data-map-host]');
+      if (host) host.classList.toggle('is-map-open', opening);
+    });
+  });
+
   if (reduce.matches) return;
 
   root.classList.add('has-motion');
@@ -185,7 +220,10 @@
     call: '.hero__frame, .house__photo img, .gallery__item img',
     map: '.hero__frame, .galpao__photo img, .baia__item img',
     dulops: '.hero__frame, .cuidado__photo img, .vehicles__item img',
-    mov: '.hero__frame, .a-mov__photo img, .treino-card'
+    mov: '.hero__frame, .a-mov__photo img, .treino-card',
+    jolie: '.hero__frame, .first__media, .space__photo img, .modality',
+    topsul: '.hero__frame, .unit__photo img, .care__photo img, .service-row',
+    zm: '.hero__frame, .gallery__item img, .studio__photo img, .service'
   };
 
   if (fine.matches) {
@@ -241,7 +279,10 @@
     call: '.service-card, .house__quote, .prosthesis__item, .visit__panel',
     map: '.service-row, .galpao__note, .contact__panel',
     dulops: '.service, .cuidado__note, .contact__panel, .vehicles__copy',
-    mov: '.treino-card, .contact__panel, .tab-panel'
+    mov: '.treino-card, .contact__panel, .tab-panel',
+    jolie: '.modality, .space__copy, .contact__panel, .first__media',
+    topsul: '.service-row, .unit__card, .care__note, .contact__panel',
+    zm: '.service, .studio__note, .contact__panel, .process__step'
   };
 
   if (fine.matches) {
@@ -272,38 +313,4 @@
     });
   }
 
-  /* Mapa dinâmico ------------------------------------------------------- */
-
-  document.querySelectorAll('[data-map-toggle]').forEach((button) => {
-    const target = document.getElementById(button.getAttribute('aria-controls'));
-    if (!target) return;
-
-    button.addEventListener('click', () => {
-      const iframe = target.querySelector('iframe[data-map-src]');
-      if (iframe && !iframe.getAttribute('src')) {
-        iframe.setAttribute('src', iframe.dataset.mapSrc);
-      }
-
-      const opening = target.hasAttribute('hidden');
-      if (opening) {
-        target.removeAttribute('hidden');
-      } else {
-        target.setAttribute('hidden', '');
-      }
-
-      button.setAttribute('aria-expanded', opening ? 'true' : 'false');
-      const label = button.querySelector('[data-map-label]');
-      if (label) {
-        label.textContent = opening
-          ? button.dataset.labelClose || 'Fechar mapa'
-          : button.dataset.labelOpen || 'Ver mapa';
-      }
-
-      const panel = button.closest('.visit__panel-map');
-      if (panel) panel.classList.toggle('is-live', opening);
-
-      const host = button.closest('[data-map-host]');
-      if (host) host.classList.toggle('is-map-open', opening);
-    });
-  });
 })();

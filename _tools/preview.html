@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #ddd; }
+  iframe { display: block; border: 0; background: #fff; }
+</style>
+</head>
+<body>
+<script>
+  const params = new URLSearchParams(location.search);
+  const src = params.get('src') || '/eleve/';
+  const width = parseInt(params.get('w') || '1440', 10);
+  const viewH = parseInt(params.get('h') || '900', 10);
+  const fixedHero = parseInt(params.get('hero') || '860', 10);
+  const scrollY = parseInt(params.get('y') || '0', 10);
+  const isFull = params.get('full') === '1';
+  const scale = parseFloat(params.get('scale') || '1');
+  const clickSelector = params.get('click');
+
+  document.documentElement.style.width = width + 'px';
+  document.body.style.width = width + 'px';
+
+  const frame = document.createElement('iframe');
+  frame.src = src;
+  frame.width = width;
+  frame.height = viewH;
+  frame.setAttribute('title', 'Prévia do site');
+  document.body.appendChild(frame);
+
+  frame.addEventListener('load', () => {
+    const doc = frame.contentDocument;
+    const win = frame.contentWindow;
+    const style = doc.createElement('style');
+    style.textContent = `
+      html { scroll-behavior: auto !important; }
+      .hero, .hero__inner { min-height: ${fixedHero}px !important; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .parallax { transform: none !important; }
+      .hero__line, .hero__photo-main, .hero__photo-small { animation: none !important; }
+      img[loading="lazy"] { loading: eager; }
+    `;
+    doc.head.appendChild(style);
+
+    const imgs = Array.from(doc.images);
+    imgs.forEach(img => {
+      img.loading = 'eager';
+      img.removeAttribute('loading');
+    });
+
+    const waitImages = Promise.all(imgs.map(img => {
+      if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+      return new Promise(resolve => {
+        img.addEventListener('load', resolve, { once: true });
+        img.addEventListener('error', resolve, { once: true });
+        setTimeout(resolve, 2500);
+      });
+    }));
+
+    const waitFonts = doc.fonts ? doc.fonts.ready : Promise.resolve();
+
+    Promise.race([
+      Promise.all([waitImages, waitFonts]),
+      new Promise(resolve => setTimeout(resolve, 4000))
+    ]).then(() => {
+      if (isFull) {
+        frame.height = Math.max(doc.documentElement.scrollHeight, doc.body.scrollHeight);
+      }
+      if (scrollY > 36) {
+        const nav = doc.querySelector('[data-nav]');
+        const wa = doc.querySelector('.wa-float');
+        if (nav) nav.classList.add('is-scrolled');
+        if (wa) wa.classList.add('is-visible');
+      }
+      win.scrollTo(0, scrollY);
+      const decodeAll = Promise.all(imgs.map(img => {
+        if (typeof img.decode !== 'function') return Promise.resolve();
+        return img.decode().catch(() => null);
+      }));
+      Promise.race([decodeAll, new Promise(resolve => setTimeout(resolve, 2500))]).then(() => {
+        win.scrollTo(0, scrollY);
+        if (clickSelector) {
+          const target = doc.querySelector(clickSelector);
+          if (target) target.click();
+        }
+        setTimeout(() => {
+          if (scale !== 1) {
+            frame.style.transform = 'scale(' + scale + ')';
+            frame.style.transformOrigin = 'top left';
+            document.body.style.height = (frame.height * scale) + 'px';
+          }
+          document.documentElement.setAttribute('data-ready', 'true');
+        }, 700);
+      });
+    });
+  });
+</script>
+</body>
+</html>

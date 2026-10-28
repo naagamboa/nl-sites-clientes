@@ -1,0 +1,425 @@
+/* ==========================================================================
+   NL Sites — camada de movimento
+   Cursor, abertura, progresso, tilt, botões magnéticos e spotlight.
+   Só ativa quando o visitante aceita movimento e usa mouse.
+   ========================================================================== */
+
+:root {
+  --m-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body[data-motion="eleve"] {
+  --m-cursor: #e8452f;
+  --m-progress: #e8452f;
+  --m-intro-bg: #f6f1e4;
+  --m-intro-fg: #171512;
+  --m-intro-font: var(--serif);
+  --m-spot: rgba(232, 69, 47, 0.16);
+}
+
+body[data-motion="santos"] {
+  --m-cursor: #e23a2e;
+  --m-progress: #e23a2e;
+  --m-intro-bg: #0a0b0d;
+  --m-intro-fg: #f2f0ea;
+  --m-intro-font: var(--sans);
+  --m-spot: rgba(226, 58, 46, 0.14);
+}
+
+body[data-motion="trussardi"] {
+  --m-cursor: #1e3fe0;
+  --m-progress: #1e3fe0;
+  --m-intro-bg: #f0ece3;
+  --m-intro-fg: #17181b;
+  --m-intro-font: var(--sans);
+  --m-spot: rgba(30, 63, 224, 0.13);
+}
+
+body[data-motion="artoflife"] {
+  --m-cursor: #b98b4e;
+  --m-progress: #b98b4e;
+  --m-intro-bg: #0c0b09;
+  --m-intro-fg: #f2ead9;
+  --m-intro-font: var(--display);
+  --m-spot: rgba(185, 139, 78, 0.16);
+}
+
+body[data-motion="hub"] {
+  --m-cursor: #9db82a;
+  --m-progress: #9db82a;
+  --m-intro-bg: #14261a;
+  --m-intro-fg: #d8f24a;
+  --m-intro-font: var(--sans);
+  --m-spot: rgba(157, 184, 42, 0.12);
+}
+
+body[data-motion="bravus"] {
+  --m-cursor: #c8ff36;
+  --m-progress: #c8ff36;
+  --m-intro-bg: #070908;
+  --m-intro-fg: #c8ff36;
+  --m-intro-font: var(--display);
+  --m-spot: rgba(200, 255, 54, 0.12);
+}
+
+body[data-motion="call"] {
+  --m-cursor: #d8764f;
+  --m-progress: #d8764f;
+  --m-intro-bg: #0e3b2e;
+  --m-intro-fg: #f5eedf;
+  --m-intro-font: var(--display);
+  --m-spot: rgba(216, 118, 79, 0.14);
+}
+
+body[data-motion="map"] {
+  --m-cursor: #e12522;
+  --m-progress: #e12522;
+  --m-intro-bg: #f1eadc;
+  --m-intro-fg: #151515;
+  --m-intro-font: var(--display);
+  --m-spot: rgba(225, 37, 34, 0.13);
+}
+
+body[data-motion="dulops"] {
+  --m-cursor: #2e9bc4;
+  --m-progress: #b9efff;
+  --m-intro-bg: #061018;
+  --m-intro-fg: #b9efff;
+  --m-intro-font: var(--display);
+  --m-spot: rgba(185, 239, 255, 0.12);
+}
+
+body[data-motion="mov"] {
+  --m-cursor: #b8ff2e;
+  --m-progress: #b8ff2e;
+  --m-intro-bg: #080b07;
+  --m-intro-fg: #b8ff2e;
+  --m-intro-font: var(--display);
+  --m-spot: rgba(184, 255, 46, 0.12);
+}
+
+/* Cursor ------------------------------------------------------------------ */
+
+html.has-motion.has-cursor,
+html.has-motion.has-cursor a,
+html.has-motion.has-cursor button,
+html.has-motion.has-cursor summary,
+html.has-motion.has-cursor [role="button"] {
+  cursor: none;
+}
+
+.m-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10002;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.m-cursor.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.m-cursor__dot,
+.m-cursor__ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.m-cursor__dot {
+  width: 5px;
+  height: 5px;
+  background: var(--m-cursor);
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.4), 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.m-cursor__ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--m-cursor);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 4px 14px rgba(0, 0, 0, 0.22);
+  transition:
+    width 0.26s var(--m-ease),
+    height 0.26s var(--m-ease),
+    background-color 0.26s var(--m-ease),
+    opacity 0.2s ease;
+}
+
+.m-cursor.is-link .m-cursor__ring {
+  width: 54px;
+  height: 54px;
+  background: color-mix(in srgb, var(--m-cursor) 10%, transparent);
+}
+
+.m-cursor.is-down .m-cursor__ring {
+  width: 26px;
+  height: 26px;
+  background: var(--m-cursor);
+}
+
+body[data-motion="santos"] .m-cursor__ring { border-radius: 2px; }
+body[data-motion="trussardi"] .m-cursor__ring { border-radius: 0; }
+body[data-motion="artoflife"] .m-cursor__ring { border-radius: 2px; rotate: 45deg; }
+body[data-motion="hub"] .m-cursor__ring { border-radius: 9px; }
+
+body[data-motion="trussardi"] .m-cursor__ring::before,
+body[data-motion="trussardi"] .m-cursor__ring::after {
+  content: "";
+  position: absolute;
+  background: var(--m-cursor);
+  opacity: 0.55;
+}
+
+body[data-motion="trussardi"] .m-cursor__ring::before {
+  left: 50%;
+  top: -7px;
+  width: 1px;
+  height: 5px;
+  box-shadow: 0 38px 0 var(--m-cursor);
+}
+
+body[data-motion="trussardi"] .m-cursor__ring::after {
+  top: 50%;
+  left: -7px;
+  height: 1px;
+  width: 5px;
+  box-shadow: 38px 0 0 var(--m-cursor);
+}
+
+/* Aberturas de texto ------------------------------------------------------ */
+
+/* A abertura de página é feita pela cortina .m-intro; os textos permanecem
+   visíveis por padrão para não depender de animação em abas em segundo plano. */
+
+/* Abertura ---------------------------------------------------------------- */
+
+.m-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  display: grid;
+  place-items: center;
+  padding: 8vw;
+  overflow: hidden;
+  background: var(--m-intro-bg, #0c0b09);
+  color: var(--m-intro-fg, #f2ead9);
+  pointer-events: none;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.85s cubic-bezier(0.76, 0, 0.24, 1) 0.12s;
+}
+
+.m-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--m-cursor) 16%, transparent), transparent 34%),
+    radial-gradient(circle at 14% 86%, color-mix(in srgb, var(--m-cursor) 9%, transparent), transparent 30%);
+}
+
+@keyframes m-intro-line {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 0.28;
+    transform: scaleX(1);
+  }
+}
+
+.m-intro__word {
+  position: relative;
+  z-index: 1;
+  max-width: 94vw;
+  overflow-wrap: anywhere;
+  font-family: var(--m-intro-font, var(--sans));
+  font-size: clamp(42px, 9vw, 138px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  text-align: center;
+}
+
+.m-intro__line {
+  position: absolute;
+  left: 8vw;
+  right: 8vw;
+  bottom: 9vh;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.28;
+  transform-origin: left;
+}
+
+.m-intro.is-done {
+  clip-path: inset(0 0 100% 0);
+}
+
+/* Progresso --------------------------------------------------------------- */
+
+.m-progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 2px;
+  background: var(--m-progress, #d8f24a);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+/* Botões magnéticos ------------------------------------------------------- */
+
+.m-magnetic {
+  translate: var(--m-mag-x, 0px) var(--m-mag-y, 0px);
+  transition: translate 0.45s var(--m-ease);
+}
+
+.m-magnetic:hover { transition-duration: 0.12s; }
+
+/* Tilt 3D ----------------------------------------------------------------- */
+
+.m-tilt {
+  --m-tilt-x: 0deg;
+  --m-tilt-y: 0deg;
+  --m-tilt-scale: 1;
+  transform: perspective(1000px) rotateX(var(--m-tilt-x)) rotateY(var(--m-tilt-y)) scale(var(--m-tilt-scale)) !important;
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--m-ease);
+  will-change: transform;
+}
+
+.m-tilt.is-tilting { transition-duration: 0.08s; }
+
+.m-tilt-shine {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--m-tilt-mx, 50%) var(--m-tilt-my, 50%),
+    rgba(255, 255, 255, 0.18),
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  mix-blend-mode: screen;
+}
+
+.m-tilt:hover .m-tilt-shine { opacity: 1; }
+
+body[data-motion="eleve"] .gallery__item img.m-tilt,
+body[data-motion="eleve"] .visit__photo img.m-tilt,
+body[data-motion="eleve"] .audience__photo img.m-tilt,
+body[data-motion="artoflife"] .gallery__item img.m-tilt,
+body[data-motion="artoflife"] .services__figure img.m-tilt,
+body[data-motion="hub"] .card__media.m-tilt,
+body[data-motion="hub"] .card__mobile.m-tilt {
+  --m-tilt-scale: 1.045;
+}
+
+body[data-motion="trussardi"] .doors__stage.m-tilt { --m-tilt-scale: 1.015; }
+body[data-motion="trussardi"] .plate__frame.m-tilt { --m-tilt-scale: 1.01; }
+body[data-motion="santos"] .manifesto__badge.m-tilt { --m-tilt-scale: 1.04; }
+body[data-motion="artoflife"] .hero__frame.m-tilt { --m-tilt-scale: 1.015; }
+body[data-motion="bravus"] .hero__frame.m-tilt { --m-tilt-scale: 1.01; }
+body[data-motion="call"] .hero__frame.m-tilt { --m-tilt-scale: 1.01; }
+body[data-motion="map"] .hero__frame.m-tilt { --m-tilt-scale: 1.01; }
+body[data-motion="dulops"] .hero__frame.m-tilt { --m-tilt-scale: 1.01; }
+body[data-motion="mov"] .hero__frame.m-tilt { --m-tilt-scale: 1.01; }
+
+/* Spotlight --------------------------------------------------------------- */
+
+/* O host do spotlight recebe position:relative via JS quando necessário. */
+
+.m-spot {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    300px circle at var(--m-spot-x, 50%) var(--m-spot-y, 50%),
+    var(--m-spot, rgba(255, 255, 255, 0.1)),
+    transparent 68%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.m-spot-host:hover .m-spot { opacity: 1; }
+
+/* Hover lift -------------------------------------------------------------- */
+
+@media (hover: hover) {
+  body[data-motion] .service {
+    transition: translate 0.35s var(--m-ease), background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  body[data-motion] .service:hover { translate: 0 -4px; }
+
+  body[data-motion] .gallery__tile:hover .gallery__tile-arrow {
+    translate: 3px -3px;
+  }
+}
+
+/* Movimento reduzido ------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html.has-motion { scroll-behavior: auto; }
+
+  html.has-motion.has-cursor,
+  html.has-motion.has-cursor a,
+  html.has-motion.has-cursor button,
+  html.has-motion.has-cursor summary,
+  html.has-motion.has-cursor [role="button"] {
+    cursor: auto !important;
+  }
+
+  .m-intro,
+  .m-cursor,
+  .m-progress,
+  .m-tilt-shine {
+    display: none !important;
+  }
+
+  .m-tilt,
+  .m-magnetic,
+  body[data-motion] .service {
+    transform: none !important;
+    translate: none !important;
+    transition: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  html.has-motion.has-cursor,
+  html.has-motion.has-cursor a,
+  html.has-motion.has-cursor button,
+  html.has-motion.has-cursor summary,
+  html.has-motion.has-cursor [role="button"] {
+    cursor: auto !important;
+  }
+
+  .m-cursor {
+    display: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .m-cursor { display: none; }
+}

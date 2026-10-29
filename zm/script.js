@@ -119,7 +119,7 @@
         const innerImage = button.querySelector('img');
         if (!source) return;
         lightboxImg.src = source;
-        lightboxImg.alt = innerImage ? innerImage.alt : caption;
+        lightboxImg.alt = innerImage && innerImage.alt ? innerImage.alt : caption;
         if (lightboxCaption) lightboxCaption.textContent = caption;
         lightbox.showModal();
       });

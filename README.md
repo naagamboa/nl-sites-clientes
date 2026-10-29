@@ -140,12 +140,14 @@ Google Maps quando há endereço confirmado.
 
 ## QA
 
-As doze páginas passaram no Lighthouse com 100 em acessibilidade, boas práticas
-e SEO. Também foram verificados:
+Os doze sites e o hub passaram no Lighthouse com 100 em acessibilidade, boas
+práticas e SEO, sem falhas residuais. Também foram verificados:
 
 - links internos, âncoras e assets locais;
-- layout em 1440, 390 e 320 px;
-- `prefers-reduced-motion` e estados de foco;
+- layout em 1440, 390 e 320 px, sem títulos cortados ou overflow horizontal;
+- mapas sob demanda em todos os endereços públicos, com fallback visual;
+- `prefers-reduced-motion`, estados de foco e alvos de toque de 44 px;
+- cursor próprio apenas em Art of Life, Bravus e ZM;
 - console sem erros.
 
 Screenshots em `_shots/` e nos cards do hub em `_hub/assets/shots/`.

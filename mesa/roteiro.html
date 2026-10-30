@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Roteiro de venda interno da NL Sites com contato, endereço, horário, objeções e abordagem do cliente.">
+  <title>Roteiro de venda | NL Sites</title>
+  <meta name="theme-color" content="#f5f3ec">
+  <link rel="stylesheet" href="../_hub/assets/fonts.css">
+  <link rel="stylesheet" href="sales.css">
+  <link rel="stylesheet" href="secure.css">
+</head>
+<body class="guide is-locked">
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="topbar__brand" href="index.html">
+        <span class="topbar__mark" aria-hidden="true">NL</span>
+        <span>
+          <span class="topbar__name">Roteiro de venda</span>
+          <span class="topbar__sub">NL Sites · uso interno</span>
+        </span>
+      </a>
+      <nav class="topbar__nav" aria-label="Navegação interna">
+        <a class="topbar__back" href="index.html">← Mesa de vendas</a>
+        <span class="badge">Interno</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="guide-wrap wrap" id="guide" inert>
+    <div class="empty">
+      <p class="eyebrow"><span class="dot"></span> Mesa interna</p>
+      <h1>Acesso restrito.</h1>
+    </div>
+  </main>
+
+  <div class="secure-gate" id="secureGate">
+    <section class="secure-card" aria-labelledby="secureTitle">
+      <span class="secure-mark" aria-hidden="true">NL</span>
+      <p class="eyebrow"><span class="dot"></span> Mesa interna</p>
+      <h1 id="secureTitle">Acesso restrito.</h1>
+      <p>Digite a senha da NL Sites para abrir este roteiro.</p>
+      <form class="secure-form" id="secureForm">
+        <label for="securePassword">Senha</label>
+        <input id="securePassword" name="password" type="password" autocomplete="current-password" required autofocus>
+        <button class="btn btn--accent" type="submit">Entrar</button>
+      </form>
+      <p class="secure-error" id="secureError" role="alert" aria-live="polite"></p>
+      <p class="secure-note">Sessão privada por 2 horas nesta aba. Os dados são criptografados; a senha não fica salva.</p>
+    </section>
+  </div>
+
+  <script src="data.secure.js"></script>
+  <script src="secure.js"></script>
+</body>
+</html>

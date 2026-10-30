@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Mesa de vendas interna da NL Sites: contatos, ordem de abordagem e roteiros dos 12 clientes.">
+  <title>Mesa de vendas | NL Sites</title>
+  <meta name="theme-color" content="#0b120d">
+  <link rel="stylesheet" href="../_hub/assets/fonts.css">
+  <link rel="stylesheet" href="sales.css">
+  <link rel="stylesheet" href="secure.css">
+</head>
+<body class="dashboard is-locked">
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="topbar__brand" href="../">
+        <span class="topbar__mark" aria-hidden="true">NL</span>
+        <span>
+          <span class="topbar__name">Mesa de vendas</span>
+          <span class="topbar__sub">NL Sites · uso interno</span>
+        </span>
+      </a>
+      <nav class="topbar__nav" aria-label="Navegação interna">
+        <a href="../">Hub</a>
+        <span class="badge">Interno</span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" inert>
+    <section class="dash-hero">
+      <div class="wrap">
+        <p class="eyebrow"><span class="dot"></span> 12 clientes · 12 roteiros</p>
+        <h1>Uma fila de<br><em>abordagem.</em></h1>
+        <p class="dash-hero__lead">
+          Não é uma lista de sites. É a ordem em que eu chamaria cada cliente,
+          com o contato, o endereço, o horário e a mensagem certa para abrir a conversa.
+          Leia o roteiro, copie a abertura e mande uma por vez.
+        </p>
+        <div class="attack-line" id="attackLine"></div>
+        <div class="dash-stats">
+          <span><strong>12</strong> clientes</span>
+          <span><strong>1</strong> por vez</span>
+          <span><strong>2</strong> meses de garantia</span>
+          <span><strong>0</strong> links na primeira mensagem</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="rank-section">
+      <div class="wrap">
+        <div class="rank-section__head">
+          <h2>Ordem de ataque</h2>
+          <p>Do mais fácil de justificar para o mais consultivo. A ordem é uma opinião de venda, não uma nota do cliente.</p>
+        </div>
+        <div class="rank-list" id="ranking"></div>
+      </div>
+    </section>
+
+    <section class="rules">
+      <div class="wrap">
+        <div class="rules__box">
+          <div>
+            <p class="eyebrow"><span class="dot"></span> Antes de enviar</p>
+            <h2>O link é a<br><em>recompensa.</em></h2>
+          </div>
+          <ol>
+            <li>A primeira mensagem não tem link, preço nem textão. Ela só pede permissão para mandar a prévia.</li>
+            <li>Se a pessoa responder “manda”, envie o link com uma frase de valor e uma pergunta: “o que você mudaria?”.</li>
+            <li>Follow-up em 2 dias. Se não responder, só volte em 30 dias. Se disser “não”, pare.</li>
+            <li>Não invente preço, horário, avaliação ou endereço. O que não está confirmado, não entra.</li>
+            <li>Registre o contato e a próxima ação no NL adm. A mesa é o roteiro; o CRM é a memória.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" inert>
+    <div class="wrap footer__inner">
+      <p>NL Sites · mesa de vendas interna</p>
+      <p>Dados criptografados. Não publicar a senha.</p>
+    </div>
+  </footer>
+
+  <div class="secure-gate" id="secureGate">
+    <section class="secure-card" aria-labelledby="secureTitle">
+      <span class="secure-mark" aria-hidden="true">NL</span>
+      <p class="eyebrow"><span class="dot"></span> Mesa interna</p>
+      <h1 id="secureTitle">Acesso restrito.</h1>
+      <p>Digite a senha da NL Sites para abrir a ordem de abordagem e os 12 roteiros.</p>
+      <form class="secure-form" id="secureForm">
+        <label for="securePassword">Senha</label>
+        <input id="securePassword" name="password" type="password" autocomplete="current-password" required autofocus>
+        <button class="btn btn--accent" type="submit">Entrar</button>
+      </form>
+      <p class="secure-error" id="secureError" role="alert" aria-live="polite"></p>
+      <p class="secure-note">Sessão privada por 2 horas nesta aba. Os dados são criptografados; a senha não fica salva.</p>
+    </section>
+  </div>
+
+  <script src="data.secure.js"></script>
+  <script src="secure.js"></script>
+</body>
+</html>

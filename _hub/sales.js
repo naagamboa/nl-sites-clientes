@@ -1,6 +1,6 @@
 (() => {
   const internal = location.protocol === "file:"
-    || ["localhost", "127.0.0.1", "::1"].includes(location.hostname);
+    || /^(localhost|127\.0\.0\.1|\[::1\]|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(location.hostname);
   if (!internal) return;
 
   const ranks = {

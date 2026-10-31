@@ -9,9 +9,8 @@
   <meta name="theme-color" content="#f5f3ec">
   <link rel="stylesheet" href="../_hub/assets/fonts.css">
   <link rel="stylesheet" href="sales.css">
-  <link rel="stylesheet" href="secure.css">
 </head>
-<body class="guide is-locked">
+<body class="guide">
 
   <header class="topbar">
     <div class="wrap topbar__inner">
@@ -29,30 +28,14 @@
     </div>
   </header>
 
-  <main class="guide-wrap wrap" id="guide" inert>
+  <main class="guide-wrap wrap" id="guide">
     <div class="empty">
-      <p class="eyebrow"><span class="dot"></span> Mesa interna</p>
-      <h1>Acesso restrito.</h1>
+      <p class="eyebrow"><span class="dot"></span> Carregando roteiro</p>
+      <h1>Abrindo a mesa...</h1>
     </div>
   </main>
 
-  <div class="secure-gate" id="secureGate">
-    <section class="secure-card" aria-labelledby="secureTitle">
-      <span class="secure-mark" aria-hidden="true">NL</span>
-      <p class="eyebrow"><span class="dot"></span> Mesa interna</p>
-      <h1 id="secureTitle">Acesso restrito.</h1>
-      <p>Digite a senha da NL Sites para abrir este roteiro.</p>
-      <form class="secure-form" id="secureForm">
-        <label for="securePassword">Senha</label>
-        <input id="securePassword" name="password" type="password" autocomplete="current-password" required autofocus>
-        <button class="btn btn--accent" type="submit">Entrar</button>
-      </form>
-      <p class="secure-error" id="secureError" role="alert" aria-live="polite"></p>
-      <p class="secure-note">Sessão privada por 2 horas nesta aba. Os dados são criptografados; a senha não fica salva.</p>
-    </section>
-  </div>
-
-  <script src="data.secure.js"></script>
-  <script src="secure.js"></script>
+  <script src="data.js"></script>
+  <script src="sales.js"></script>
 </body>
 </html>

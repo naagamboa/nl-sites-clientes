@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Apresentações | NL Sites</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../_hub/assets/fonts.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #0b100c; }
+    body {
+      width: 1580px;
+      padding: 42px 40px 34px;
+      font-family: "Manrope", sans-serif;
+      color: #f2f1e8;
+    }
+    .head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 26px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(242, 241, 232, 0.16);
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #d8f24a;
+    }
+    h1 {
+      margin: 0;
+      font-size: 44px;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+    }
+    h1 em { font-style: normal; color: #d8f24a; }
+    .head p:last-child {
+      margin: 0;
+      max-width: 38ch;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(242, 241, 232, 0.62);
+      text-align: right;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px 20px;
+    }
+    figure { margin: 0; }
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(242, 241, 232, 0.18);
+      border-radius: 4px;
+      background: #111;
+    }
+    figcaption {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 7px;
+      font-family: "DM Mono", monospace;
+      font-size: 9px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(242, 241, 232, 0.5);
+    }
+    figcaption b {
+      font-family: "Manrope", sans-serif;
+      font-size: 12px;
+      letter-spacing: -0.02em;
+      color: #f2f1e8;
+    }
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(242, 241, 232, 0.16);
+      font-family: "DM Mono", monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(242, 241, 232, 0.45);
+    }
+  </style>
+</head>
+<body>
+  <header class="head">
+    <div>
+      <p class="eyebrow">NL Sites · 12 clientes</p>
+      <h1>Uma prévia<br><em>para cada um.</em></h1>
+    </div>
+    <p>Doze cartões no formato 1080 × 1350 (4:5), prontos para enviar no WhatsApp. Cada um usa as cores, a tipografia e os prints reais do site do cliente.</p>
+  </header>
+
+  <main class="grid" id="grid"></main>
+
+  <footer class="foot">
+    <span>1080 × 1350 px · PNG</span>
+    <span>NL Sites · apresentação</span>
+  </footer>
+
+  <script>
+    const items = [
+      ["eleve", "Eleve", "NeoPilates"],
+      ["santos", "Santos", "Estética Automotiva"],
+      ["trussardi", "Trussardi", "Auto Portas"],
+      ["artoflife", "Art of Life", "Barbershop"],
+      ["bravus", "Bravus", "Studio Automotivo"],
+      ["call", "Call", "Barber Shop"],
+      ["map", "MAP", "Personal Car"],
+      ["dulops", "Du Lops", "Estética Automotiva"],
+      ["mov", "MOV", "Treinamento Funcional"],
+      ["jolie", "Jolie", "Espaço de Vida"],
+      ["topsul", "Top Sul", "Lavagem e Higienização"],
+      ["zm", "ZM", "Estética Automotiva"]
+    ];
+    document.getElementById("grid").innerHTML = items.map(([slug, name, sub], i) => `
+      <figure>
+        <img src="out/${slug}.png" alt="${name} ${sub}">
+        <figcaption><b>${String(i + 1).padStart(2, "0")} ${name}</b><span>${sub}</span></figcaption>
+      </figure>
+    `).join("");
+  </script>
+</body>
+</html>

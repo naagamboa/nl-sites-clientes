@@ -140,6 +140,9 @@ body.guide .btn--copy:hover { border-color: var(--green); color: var(--green); }
 .script-block .script-text { margin-top: 13px; font-size: 14px; line-height: 1.8; color: rgba(18, 22, 15, 0.82); white-space: pre-line; }
 .script-block--link { background: #f0f4df; border-color: rgba(157, 184, 42, 0.45); }
 .script-block--link .script-text { color: var(--ink); }
+.contract-version { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(18, 22, 15, 0.18); }
+.contract-version summary { cursor: pointer; font-weight: 700; }
+.contract-version button { margin-top: 14px; }
 .copy-btn { flex: none; }
 .price-box { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; padding: clamp(20px, 2.8vw, 28px); border-radius: 12px; background: var(--green); color: var(--cream); }
 .price-box__label { font-family: var(--mono); font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }

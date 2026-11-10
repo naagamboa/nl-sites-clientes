@@ -1,6 +1,8 @@
 (() => {
   const DATA = Array.isArray(window.NL_VENDAS) ? window.NL_VENDAS : [];
   const bySlug = new Map(DATA.map((item) => [item.slug, item]));
+  let proposalText = "";
+  const contractTexts = new Map();
   const pad = (value) => String(value).padStart(2, "0");
   const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
     "&": "&amp;",
@@ -43,8 +45,17 @@
   };
 
   document.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-copy-key], [data-copy-open]");
+    const button = event.target.closest("[data-copy-key], [data-copy-open], [data-copy-proposal], [data-copy-contract]");
     if (!button) return;
+    if (button.hasAttribute("data-copy-contract")) {
+      const text = contractTexts.get(button.dataset.copyContract);
+      if (text) copyText(text, button);
+      return;
+    }
+    if (button.hasAttribute("data-copy-proposal")) {
+      if (proposalText) copyText(proposalText, button);
+      return;
+    }
     const slug = button.dataset.slug;
     const data = bySlug.get(slug);
     if (!data) return;
@@ -87,6 +98,8 @@
           <p class="rank-card__why">${esc(data.why)}</p>
           <div class="rank-card__actions">
             <a class="btn btn--accent" href="roteiro.html?slug=${encodeURIComponent(data.slug)}">Abrir roteiro</a>
+            <a class="btn btn--ghost" href="roteiro.html?slug=${encodeURIComponent(data.slug)}#proposta">Ver proposta</a>
+            <a class="btn btn--ghost" href="roteiro.html?slug=${encodeURIComponent(data.slug)}#contrato">Ver contrato</a>
             <a class="btn btn--ghost" href="${esc(data.site)}" target="_blank" rel="noopener">Ver site</a>
             <button class="btn btn--copy" type="button" data-copy-open="${esc(data.slug)}" data-slug="${esc(data.slug)}">Copiar abertura</button>
           </div>
@@ -122,6 +135,44 @@
       document.title = `${data.name} — roteiro de venda | NL Sites`;
       const previous = DATA.find((item) => item.rank === data.rank - 1);
       const next = DATA.find((item) => item.rank === data.rank + 1);
+      const proposal = window.NL_PROPOSTAS?.[slug];
+      const contracts = window.NL_CONTRATOS;
+      let contractSection = "";
+      if (proposal && contracts) {
+        const packages = contracts.pacotes(data, proposal);
+        const paragraphs = [
+          `Proposta NL Sites para ${data.name}`,
+          proposal.abertura
+        ];
+        packages.forEach((pack) => paragraphs.push(
+          `${pack.nome} · ${pack.preco}\n${pack.escopo} Prazo estimado de ${pack.dias} dias úteis após ${contracts.inicio}. ${pack.ajustes}`
+        ));
+        paragraphs.push(
+          `Condições\nTodos os pacotes incluem layout responsivo, SEO básico e publicação após aprovação. ${contracts.pagamento} ${contracts.suporte} Domínio e hospedagem são cobrados à parte. Para mudanças fora do escopo ou após a publicação, a referência é ${contracts.taxaAdicional}, com orçamento e aceite prévios. Manutenção recorrente é contratada à parte.`,
+          `Próximo passo\n${proposal.confirmar} Com esses pontos definidos, podemos fechar o escopo e combinar a data de início.`
+        );
+        proposalText = paragraphs.join("\n\n");
+        const versions = packages.map((pack) => {
+          const text = contracts.minuta(data, pack);
+          contractTexts.set(pack.id, text);
+          return `
+            <details class="contract-version" ${packages.length === 1 ? "open" : ""}>
+              <summary>${esc(pack.nome)} · ${esc(pack.preco)}</summary>
+              <p class="script-text">${esc(text)}</p>
+              <button class="btn btn--copy" type="button" data-copy-contract="${pack.id}">Copiar minuta</button>
+            </details>
+          `;
+        }).join("");
+        contractSection = `
+          <section class="script-block" id="contrato">
+            <div class="script-block__head">
+              <h2>Contrato <span>Minuta para revisão</span></h2>
+            </div>
+            <p class="script-text">Abra a minuta do pacote escolhido. Preencha os dados das partes na cópia antes de colher as assinaturas.</p>
+            ${versions}
+          </section>
+        `;
+      }
 
       const scriptBlocks = [
         { key: "open", title: "1. Abertura", note: "sem link", cls: "script-block--first" },
@@ -155,6 +206,16 @@
 
         <div class="guide-grid">
           <div class="guide-main">
+            ${proposalText ? `
+              <section class="script-block script-block--link" id="proposta">
+                <div class="script-block__head">
+                  <h2>Proposta comercial <span>Rascunho para revisão</span></h2>
+                  <button class="btn btn--copy copy-btn" type="button" data-copy-proposal>Copiar proposta</button>
+                </div>
+                <p class="script-text">${esc(proposalText)}</p>
+              </section>
+            ` : ""}
+            ${contractSection}
             ${scriptBlocks}
             <div class="price-box">
               <div>
@@ -201,6 +262,9 @@
           ${next ? `<a class="pager__next" href="roteiro.html?slug=${encodeURIComponent(next.slug)}"><span>Próximo · ${pad(next.rank)} →</span>${esc(next.name)}</a>` : `<span></span>`}
         </nav>
       `;
+      if (["#proposta", "#contrato"].includes(window.location.hash)) {
+        document.getElementById(window.location.hash.slice(1))?.scrollIntoView();
+      }
     }
   }
 })();

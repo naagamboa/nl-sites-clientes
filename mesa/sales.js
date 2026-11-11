@@ -176,6 +176,7 @@
           <p class="rank-card__why">${esc(lead.idea)}</p>
           <div class="rank-card__actions">
             <a class="btn btn--accent" href="roteiro.html?slug=${encodeURIComponent(lead.slug)}">Abrir roteiro</a>
+            ${lead.preview ? `<a class="btn btn--ghost" href="${esc(lead.preview)}">Ver prévia</a>` : ""}
             ${lead.amount ? `
               <a class="btn btn--ghost" href="roteiro.html?slug=${encodeURIComponent(lead.slug)}#proposta">Ver proposta</a>
               <a class="btn btn--ghost" href="roteiro.html?slug=${encodeURIComponent(lead.slug)}#contrato">Ver contrato</a>
@@ -242,6 +243,7 @@
           <h1>${esc(lead.name)}</h1>
           <p class="guide-head__meta"><span>${esc(lead.segment)}</span><span>${esc(lead.area)} · Porto Alegre</span></p>
           <p class="guide-head__why">${esc(lead.idea)}</p>
+          ${lead.preview ? `<div class="guide-head__actions"><a class="btn btn--dark" href="${esc(lead.preview)}">Ver prévia do site</a></div>` : ""}
         </header>
         <div class="guide-grid">
           <div class="guide-main">

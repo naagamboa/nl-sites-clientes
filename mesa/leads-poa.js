@@ -1,6 +1,7 @@
 window.NL_LEADS_POA = [
   {
     slug: "pretinhos-estetica", name: "Pretinhos Estética Automotiva", segment: "Estética automotiva", area: "Petrópolis",
+    preview: "previas/pretinhos-estetica/",
     source: "https://localbrazil.net/empresa/pretinhos-estetica-automotiva-porto-alegre", supporting: ["https://www.lavarcarro.com/perfil/1feca2f6-9d38-445f-96bc-d4781c05f9e6"],
     contact: "https://wa.me/5551994979867", address: "Rua Faria Santos, 81",
     fact: "A descrição comercial distingue lavagem simples por ordem de chegada de serviços estéticos agendados pelo WhatsApp. Dois diretórios publicam o mesmo endereço e canal.",
@@ -13,6 +14,7 @@ window.NL_LEADS_POA = [
   },
   {
     slug: "link-funcional", name: "Link Treinamento Funcional Personalizado", segment: "Treinamento funcional", area: "Tristeza",
+    preview: "previas/link-funcional/",
     source: "https://wellhub.com/pt-br/search/partners/link-treinamento-funcional-personalizado-tristeza/", supporting: ["https://www.instagram.com/linkpoa/"],
     contact: "https://wa.me/5551996065656", address: "Av. Otto Niemeyer, 857",
     fact: "A descrição no Wellhub apresenta treinos metabólico e misto de força e pede agendamento por WhatsApp para a primeira visita.",
@@ -25,6 +27,7 @@ window.NL_LEADS_POA = [
   },
   {
     slug: "barbearia-sao-jose", name: "Barbearia São José", segment: "Barbearia", area: "Sarandi",
+    preview: "previas/barbearia-sao-jose/",
     source: "https://bio.site/barbeariasaojose1960",
     contact: "https://wa.me/message/YZMQP6MZDDTOJ1", address: "Rua Xavier de Carvalho, 32, loja 101",
     fact: "A bio oficial reúne endereço e WhatsApp. Horários direcionam ao WhatsApp e o cartão fidelidade direciona ao Instagram.",

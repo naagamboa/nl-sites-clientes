@@ -35,3 +35,7 @@ As fotos da Spotco são da rede e não identificam a unidade específica. As pá
 - **Espectro.** Mantida a composição e a escolha direta de plataforma, que já atendem à decisão principal do visitante.
 
 Para as próximas prévias, registrar público, oferta de entrada, diferencial com fonte, dúvida antes do contato e ação principal antes de escolher a composição e as referências.
+
+## Estrutura por oferta
+
+A AK abre com duas rotas de serviço e usa a foto da fachada junto ao endereço. A Spotco dedica a abertura e a sequência de passos à primeira aula na unidade Parcão. A Giocar monta a mensagem de avaliação com o tipo de dano e os detalhes informados. A Fellas mostra o ambiente e põe horário marcado e ordem de chegada lado a lado. O Espectro segue como referência de uma escolha curta entre canais de reserva.

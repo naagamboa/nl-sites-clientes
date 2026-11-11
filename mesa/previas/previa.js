@@ -100,3 +100,27 @@ function updateProgress() {
 window.addEventListener("scroll", updateProgress, { passive: true });
 window.addEventListener("resize", updateProgress);
 updateProgress();
+
+document.querySelectorAll("[data-message-builder]").forEach((builder) => {
+  const link = builder.querySelector("[data-message-link]");
+  const fields = [...builder.querySelectorAll("[data-label]")];
+  function updateMessage() {
+    const lines = [builder.dataset.intro];
+    fields.forEach((field) => {
+      const value = field.value.trim();
+      if (value) lines.push(`${field.dataset.label}: ${value}`);
+    });
+    link.href = `https://wa.me/${builder.dataset.phone}?text=${encodeURIComponent(lines.join("\n"))}`;
+  }
+  builder.addEventListener("input", updateMessage);
+  builder.addEventListener("change", updateMessage);
+  updateMessage();
+});
+
+const training = document.getElementById("modalidade");
+document.querySelectorAll("[data-select-training]").forEach((action) => {
+  action.addEventListener("click", () => {
+    training.value = action.dataset.selectTraining;
+    training.dispatchEvent(new Event("change", { bubbles: true }));
+  });
+});

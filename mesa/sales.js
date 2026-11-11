@@ -1,6 +1,8 @@
 (() => {
   const DATA = Array.isArray(window.NL_VENDAS) ? window.NL_VENDAS : [];
+  const FIRST_CONTACT = Array.isArray(window.NL_PRIMEIRO_CONTATO) ? window.NL_PRIMEIRO_CONTATO : [];
   const bySlug = new Map(DATA.map((item) => [item.slug, item]));
+  const firstContactBySlug = new Map(FIRST_CONTACT.map((item) => [item.slug, item]));
   let proposalText = "";
   const contractTexts = new Map();
   const pad = (value) => String(value).padStart(2, "0");
@@ -57,6 +59,11 @@
       return;
     }
     const slug = button.dataset.slug;
+    const firstContact = firstContactBySlug.get(slug);
+    if (firstContact && button.dataset.copyOpen) {
+      copyText(firstContact.open, button);
+      return;
+    }
     const data = bySlug.get(slug);
     if (!data) return;
     const text = button.dataset.copyOpen
@@ -75,16 +82,58 @@
 
   const addressLines = (data) => data.address.map((line) => `<span>${esc(line)}</span>`).join("");
 
+  const scoreLabel = (value) => value.toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+  function potential(lead) {
+    const [need, use, delivery] = lead.ratings;
+    const knownTotal = need * 30 + use * 20 + delivery * 20;
+    return {
+      label: scoreLabel(knownTotal / 70),
+      range: `${scoreLabel(knownTotal / 100)} a ${scoreLabel((knownTotal + 150) / 100)}`
+    };
+  }
+
+  const contactLabel = (lead) => lead.kind || "WhatsApp comercial";
+
   /* Dashboard ------------------------------------------------------------- */
 
   const ranking = document.getElementById("ranking");
   if (ranking) {
+    const leadCount = document.getElementById("leadCount");
+    if (leadCount) leadCount.textContent = DATA.length + FIRST_CONTACT.length;
+    const summary = document.getElementById("leadSummary");
+    if (summary) summary.textContent = `${FIRST_CONTACT.length} para primeiro contato · ${DATA.length} com prévia`;
+
     const attack = document.getElementById("attackLine");
-    if (attack) {
-      attack.innerHTML = `<span>Prioridade agora</span>${DATA.slice(0, 4).map((item) => `
-        <a href="roteiro.html?slug=${encodeURIComponent(item.slug)}"><b>${pad(item.rank)}</b>${esc(item.name.replace(" Lavagem e Higienização", "").replace(" Estética Automotiva", "").replace(" Barbershop", "").replace(" NeoPilates", ""))}</a>
+    if (attack && FIRST_CONTACT.length) {
+      attack.innerHTML = `<span>Comece por</span>${FIRST_CONTACT.slice(0, 3).map((item, index) => `
+        <a href="roteiro.html?slug=${encodeURIComponent(item.slug)}"><b>${pad(index + 1)}</b>${esc(item.name)}</a>
       `).join("")}`;
     }
+
+    const firstRanking = document.getElementById("firstContactRanking");
+    if (firstRanking) firstRanking.innerHTML = FIRST_CONTACT.map((lead, index) => `
+      <article class="rank-card">
+        <div class="rank-card__num" aria-hidden="true">${pad(index + 1)}</div>
+        <div class="rank-card__body">
+          <div class="rank-card__top">
+            <h3 class="rank-card__name"><a href="roteiro.html?slug=${encodeURIComponent(lead.slug)}">${esc(lead.name)}</a></h3>
+            <span class="priority${index > 2 ? " priority--soft" : ""}">${potential(lead).label}/5 provisório</span>
+          </div>
+          <p class="rank-card__meta">${esc(lead.segment)} · ${esc(lead.area)} · 70% de cobertura</p>
+          <p class="rank-card__why">${esc(lead.idea)}</p>
+          <div class="rank-card__actions">
+            <a class="btn btn--accent" href="roteiro.html?slug=${encodeURIComponent(lead.slug)}">Abrir roteiro</a>
+            <button class="btn btn--copy" type="button" data-copy-open="${esc(lead.slug)}" data-slug="${esc(lead.slug)}">Copiar abertura</button>
+          </div>
+        </div>
+        <aside class="rank-card__contact">
+          <strong>Primeiro contato</strong>
+          <a href="${esc(lead.contact)}"${external(lead.contact)}>${contactLabel(lead)}</a>
+          <span>Interesse a validar</span>
+        </aside>
+      </article>
+    `).join("");
 
     ranking.innerHTML = DATA.map((data) => `
       <article class="rank-card">
@@ -120,6 +169,67 @@
   if (guide) {
     const params = new URLSearchParams(window.location.search);
     const slug = params.get("slug") || "";
+    const lead = firstContactBySlug.get(slug);
+    if (lead) {
+      const score = potential(lead);
+      const [need, use, delivery] = lead.ratings;
+      const sources = [lead.source, ...(lead.supporting || [])];
+      const lastIndex = FIRST_CONTACT.length - 1;
+      const index = FIRST_CONTACT.indexOf(lead);
+      const previous = FIRST_CONTACT[index - 1];
+      const next = FIRST_CONTACT[index + 1];
+      document.title = `${lead.name} — primeiro contato | NL Sites`;
+      guide.innerHTML = `
+        <a class="back" href="index.html#primeiro-contato">← Voltar para primeiro contato</a>
+        <header class="guide-head">
+          <p class="eyebrow"><span class="dot"></span> Primeiro contato · ${pad(index + 1)} / ${pad(lastIndex + 1)}</p>
+          <h1>${esc(lead.name)}</h1>
+          <p class="guide-head__meta"><span>${esc(lead.segment)}</span><span>${esc(lead.area)} · Porto Alegre</span></p>
+          <p class="guide-head__why">${esc(lead.idea)}</p>
+        </header>
+        <div class="guide-grid">
+          <div class="guide-main">
+            <section class="script-block script-block--first">
+              <div class="script-block__head">
+                <h2>Abertura</h2>
+                <button class="btn btn--copy copy-btn" type="button" data-copy-open="${esc(lead.slug)}" data-slug="${esc(lead.slug)}">Copiar abertura</button>
+              </div>
+              <p class="script-text">${esc(lead.open)}</p>
+            </section>
+            <section class="discovery">
+              <h2>Se houver abertura</h2>
+              <p>${esc(lead.question)}</p>
+              <p>${lead.slug === "king-razor" ? "Validar a demanda da mentoria antes de estimar preço." : "Faixa inicial de R$ 600 a R$ 700 para uma página de até cinco seções com conteúdo aprovado e links existentes. Confirmar escopo e custos de publicação antes de cotar."}</p>
+            </section>
+            <section class="script-block">
+              <h2>Evidências consultadas em 10/11/2026</h2>
+              <p class="script-text">${esc(lead.fact)}</p>
+              <ul>${sources.map((url, sourceIndex) => `<li><a href="${esc(url)}" target="_blank" rel="noopener">${sourceIndex === 0 ? "Fonte principal" : `Fonte complementar ${sourceIndex}`}</a></li>`).join("")}</ul>
+            </section>
+            <section class="script-block">
+              <h2>Potencial provisório · ${score.label}/5</h2>
+              <p class="script-text">Necessidade ${need}/5 · Caminho de uso ${use}/5 · Viabilidade da página ${delivery}/5. Cobertura de 70%. Faixa com os critérios ainda abertos de ${score.range}/5.</p>
+              <p class="script-text">Valor para o negócio e capacidade de aproveitar a página seguem em aberto. A nota avalia adequação à oferta. Interesse, orçamento, responsável pela decisão e momento de compra ainda precisam ser confirmados.</p>
+            </section>
+          </div>
+          <aside class="guide-aside">
+            <div class="contact-card">
+              <p class="contact-card__label">Canal comercial divulgado</p>
+              <a class="contact-card__primary" href="${esc(lead.contact)}"${external(lead.contact)}>${contactLabel(lead)}</a>
+              <div class="contact-card__block">
+                <span>Localização</span>
+                <p>${esc(lead.address)}</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <nav class="pager" aria-label="Navegação entre primeiros contatos">
+          ${previous ? `<a href="roteiro.html?slug=${encodeURIComponent(previous.slug)}"><span>← Anterior</span>${esc(previous.name)}</a>` : "<span></span>"}
+          ${next ? `<a class="pager__next" href="roteiro.html?slug=${encodeURIComponent(next.slug)}"><span>Próximo →</span>${esc(next.name)}</a>` : ""}
+        </nav>
+      `;
+      return;
+    }
     const data = bySlug.get(slug);
 
     if (!data) {
@@ -127,7 +237,7 @@
         <div class="empty">
           <p class="eyebrow"><span class="dot"></span> Roteiro não encontrado</p>
           <h1>Esse cliente não está na mesa.</h1>
-          <p>Volte para a mesa de vendas e escolha um dos 12 roteiros.</p>
+          <p>Volte para a mesa de vendas e escolha um roteiro.</p>
           <p style="margin-top:22px"><a class="btn btn--dark" href="index.html">Voltar para a mesa</a></p>
         </div>
       `;

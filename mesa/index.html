@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Mesa de vendas interna da NL Sites: contatos, ordem de abordagem e roteiros dos 12 clientes.">
+  <meta name="description" content="Mesa de vendas interna da NL Sites com contatos e roteiros de abordagem.">
   <title>Mesa de vendas | NL Sites</title>
   <meta name="theme-color" content="#0b120d">
   <link rel="stylesheet" href="../_hub/assets/fonts.css">
@@ -31,16 +31,14 @@
   <main>
     <section class="dash-hero">
       <div class="wrap">
-        <p class="eyebrow"><span class="dot"></span> 12 clientes · 12 roteiros</p>
+        <p class="eyebrow"><span class="dot"></span> <span id="leadSummary">Fila de prospecção</span></p>
         <h1>Uma fila de<br><em>abordagem.</em></h1>
         <p class="dash-hero__lead">
-          Não é uma lista de sites. É a ordem em que eu chamaria cada cliente,
-          com o contato, o endereço, o horário e a mensagem certa para abrir a conversa.
-          Leia o roteiro, copie a abertura e mande uma por vez.
+          Consulte o roteiro e o canal comercial de cada negócio antes de abrir a conversa.
         </p>
         <div class="attack-line" id="attackLine"></div>
         <div class="dash-stats">
-          <span><strong>12</strong> clientes</span>
+          <span><strong id="leadCount">—</strong> negócios</span>
           <span><strong>1</strong> por vez</span>
           <span><strong>2</strong> meses de garantia</span>
           <span><strong>0</strong> links na primeira mensagem</span>
@@ -48,11 +46,21 @@
       </div>
     </section>
 
+    <section class="rank-section" id="primeiro-contato" aria-labelledby="firstContactHeading">
+      <div class="wrap">
+        <div class="rank-section__head">
+          <h2 id="firstContactHeading">Primeiro contato</h2>
+          <p>Negócios de Porto Alegre com abertura pronta. A ordem considera a oportunidade observada e a facilidade de validar a ideia.</p>
+        </div>
+        <div class="rank-list" id="firstContactRanking"></div>
+      </div>
+    </section>
+
     <section class="rank-section">
       <div class="wrap">
         <div class="rank-section__head">
-          <h2>Ordem de ataque</h2>
-          <p>Do mais fácil de justificar para o mais consultivo. A ordem é uma opinião de venda, não uma nota do cliente.</p>
+          <h2>Prospecção com prévia</h2>
+          <p>Roteiros com site de demonstração, proposta e minuta de contrato.</p>
         </div>
         <div class="rank-list" id="ranking"></div>
       </div>
@@ -66,8 +74,8 @@
             <h2>O link é a<br><em>recompensa.</em></h2>
           </div>
           <ol>
-            <li>A primeira mensagem não tem link, preço nem textão. Ela só pede permissão para mandar a prévia.</li>
-            <li>Se a pessoa responder “manda”, envie o link com uma frase de valor e uma pergunta: “o que você mudaria?”.</li>
+            <li>Abra com uma observação concreta e peça permissão para apresentar a ideia ou a prévia.</li>
+            <li>Com permissão, explique a ideia e faça a pergunta de diagnóstico. Quando houver prévia, compartilhe o link.</li>
             <li>Follow-up em 2 dias. Se não responder, só volte em 30 dias. Se disser “não”, pare.</li>
             <li>Não invente preço, horário, avaliação ou endereço. O que não está confirmado, não entra.</li>
             <li>Registre o contato e a próxima ação no NL adm. A mesa é o roteiro; o CRM é a memória.</li>
@@ -80,11 +88,12 @@
   <footer class="footer">
     <div class="wrap footer__inner">
       <p>NL Sites · mesa de vendas interna</p>
-      <p>Dados verificados nos sites dos clientes. Não publicar.</p>
+      <p>Consulte as fontes antes do contato.</p>
     </div>
   </footer>
 
   <script src="data.js"></script>
-  <script src="sales.js"></script>
+  <script src="primeiro-contato.js"></script>
+  <script src="sales.js?v=primeiro-contato"></script>
 </body>
 </html>

@@ -13,3 +13,15 @@ A terceira versão incorpora a navegação por abas da MOV e o diálogo de fotos
 | São José | Tipografia clássica e cores de madeira inspiradas no salão. A página facilita contato e consulta sobre o cartão. | Foto do salão e marca do [perfil da barbearia](https://bio.site/barbeariasaojose1960). |
 
 Fontes consultadas em 10/11/2026. Imagens públicas referenciadas para demonstração. Para o site definitivo, confirmar com cada negócio a autorização de uso das imagens e os detalhes de atendimento. Na São José, confirmar também as regras do cartão fidelidade.
+
+## Segunda rodada
+
+| Negócio | Direção e ação principal | Fonte |
+| --- | --- | --- |
+| AK | Ciano e magenta da fachada. Escolha da lavagem com mensagens de orçamento distintas. | [Ficha pública e fotos](https://localbrazil.net/empresa/ak-lavagem-e-estetica-automotiva-porto-alegre) |
+| Spotco Parcão | Composição esportiva com fotos oficiais da rede. Escolha de modalidade para agendar a aula experimental. A ficha mantém o identificador original da Open Parcão. | [Site oficial](https://spotcompany.com.br/) |
+| Giocar | Vermelho e preto do logotipo. Orientação por tipo de dano e checklist para preparar as fotos. | [Registro da oficina](https://poalista.com/automotivo/chapeacoes-pinturas/giocar-estetica-automotiva/) |
+| Fellas | Tipografia e moldura inspiradas no interior da barbearia. Horário por serviço, incluindo primeiro corte infantil. | [Site oficial](https://www.fellasbarbearia.com/) |
+| Espectro | Composição gráfica de movimento e caminhos paralelos de reserva. Identidade visual provisória, pois logo e fotos do estúdio não foram confirmados. | [ClassPass](https://classpass.com/studios/espectro-pilates-porto-alegre) |
+
+As fotos da Spotco são da rede e não identificam a unidade específica. As páginas usam uma folha de estilos compartilhada e JavaScript sem dependências. As fotos da galeria ampliam em diálogo nativo, com fechamento pelo teclado.

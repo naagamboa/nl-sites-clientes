@@ -40,6 +40,7 @@ window.NL_LEADS_POA = [
   },
   {
     slug: "ak-lavagem", name: "AK Lavagem & Estética Automotiva", segment: "Estética automotiva", area: "Vila Nova",
+    preview: "previas/ak-lavagem/",
     source: "https://localbrazil.net/empresa/ak-lavagem-e-estetica-automotiva-porto-alegre",
     contact: "https://wa.me/5551995710928", address: "Estrada Cristiano Kraemer, 151",
     fact: "A descrição comercial apresenta lavagem expressa, completa e limpeza interna. A ficha publica endereço e WhatsApp.",
@@ -51,19 +52,21 @@ window.NL_LEADS_POA = [
     extra: "Adicionar um simulador de orçamento por veículo ou catálogo ampliado."
   },
   {
-    slug: "open-parcao", name: "Open Parcão", segment: "Treinamento funcional", area: "Região do Parcão",
-    source: "https://linktr.ee/openparcao",
-    contact: "https://api.whatsapp.com/message/HQWXJTMWTURDO1", address: "Confirmar endereço para a aula experimental",
-    fact: "A bio oficial de treinamento funcional tem como ação principal agendar uma aula experimental pelo WhatsApp.",
+    slug: "open-parcao", name: "Spotco Parcão", segment: "Treinamento funcional", area: "Região do Parcão",
+    preview: "previas/open-parcao/",
+    source: "https://spotcompany.com.br/", supporting: ["https://linktr.ee/openparcao"],
+    contact: "https://wa.me/555196398358", address: "Rua Comendador Caminha, 60",
+    fact: "O site oficial apresenta a unidade Parcão, os formatos de treino e a primeira aula gratuita por WhatsApp.",
     idea: "Explicar o que acontece na aula experimental antes de abrir a conversa de agendamento.",
     question: "O que um aluno iniciante precisa saber antes de marcar a primeira aula?",
-    open: "Oi, equipe Open! Aqui é da NL Sites. Vi que a bio de vocês leva direto para agendar a aula experimental. Pensei numa página curta para explicar como é a primeira aula e manter o mesmo WhatsApp. Posso contar a ideia?",
+    open: "Oi, equipe Spotco Parcão! Aqui é da NL Sites. Vi que vocês têm Cross Training e funcional personalizado. Montei uma prévia dedicada à unidade do Parcão para ajudar quem está escolhendo como começar. Posso mostrar?",
     ratings: [3, 4, 3], amount: 650,
     scope: "Página focada na aula experimental, com descrição aprovada, orientações para iniciantes, rota confirmada e o botão de agendamento atual.",
     extra: "Criar páginas por turma ou sincronizar vagas com uma agenda."
   },
   {
     slug: "giocar-estetica", name: "Giocar Estética Automotiva", segment: "Estética e reparo automotivo", area: "Mário Quintana",
+    preview: "previas/giocar-estetica/",
     source: "https://www.santoguia.com.br/empresa/porto-alegre-rs/giocar-estetica-automotiva-martelinho-de-ouro",
     supporting: ["https://poalista.com/automotivo/chapeacoes-pinturas/giocar-estetica-automotiva/"],
     contact: "https://wa.me/5551984421217", address: "Rua Germano Basler, 722",
@@ -77,6 +80,7 @@ window.NL_LEADS_POA = [
   },
   {
     slug: "fellas-barbearia", name: "Fellas Bar.bearia", segment: "Barbearia", area: "Higienópolis",
+    preview: "previas/fellas-barbearia/",
     source: "https://localbrazil.net/en/empresa/fellas-bar-bearia-porto-alegre", supporting: ["https://curtindoportoalegre.com.br/20-barbearias-em-porto-alegre/"],
     contact: "https://wa.me/5551993273864", address: "Rua Luzitana, 109",
     fact: "A apresentação comercial destaca cortes clássicos e atendimento infantil. Duas fontes divulgam o mesmo WhatsApp.",
@@ -89,6 +93,7 @@ window.NL_LEADS_POA = [
   },
   {
     slug: "espectro-pilates", name: "Espectro Pilates", segment: "Pilates", area: "Moinhos de Vento",
+    preview: "previas/espectro-pilates/",
     source: "https://classpass.com/studios/espectro-pilates-porto-alegre", supporting: ["https://www.instagram.com/espectro_pilates/"],
     contact: "tel:+5551999876964", kind: "Telefone comercial", address: "Av. Cristóvão Colombo, 881, sala 307",
     fact: "O perfil no ClassPass divulga endereço, telefone, Instagram e um link NextFit.",

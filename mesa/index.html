@@ -8,7 +8,7 @@
   <title>Mesa de vendas | NL Sites</title>
   <meta name="theme-color" content="#0b120d">
   <link rel="stylesheet" href="../_hub/assets/fonts.css">
-  <link rel="stylesheet" href="sales.css">
+  <link rel="stylesheet" href="sales.css?v=filtros-1">
 </head>
 <body class="dashboard">
 
@@ -44,6 +44,29 @@
           <span><strong>0</strong> links na primeira mensagem</span>
         </div>
       </div>
+    </section>
+
+    <section class="lead-tools wrap" aria-label="Buscar e filtrar leads" hidden>
+      <form class="lead-filters" role="search">
+        <label class="lead-filters__search">Buscar lead
+          <span class="lead-filters__input">
+            <span class="lead-filters__glass" aria-hidden="true"></span>
+            <input type="search" name="query" placeholder="Nome, bairro ou segmento">
+          </span>
+        </label>
+        <label>Segmento
+          <select name="segment"><option value="">Todos os segmentos</option></select>
+        </label>
+        <label>Prévia do site
+          <select name="preview">
+            <option value="">Todos os leads</option>
+            <option value="yes">Com prévia</option>
+            <option value="no">Sem prévia</option>
+          </select>
+        </label>
+        <button class="btn btn--ghost" type="reset">Limpar filtros</button>
+      </form>
+      <p class="lead-filters__status" role="status" aria-live="polite"></p>
     </section>
 
     <section class="rank-section" id="primeiro-contato" aria-labelledby="firstContactHeading">
@@ -94,7 +117,8 @@
 
   <script src="data.js"></script>
   <script src="primeiro-contato.js"></script>
-  <script src="leads-poa.js?v=previas-2"></script>
-  <script src="sales.js?v=previas-1"></script>
+  <script src="leads-poa.js?v=previas-revisadas"></script>
+  <script src="sales.js?v=filtros-1"></script>
+  <script src="lead-filters.js?v=1"></script>
 </body>
 </html>

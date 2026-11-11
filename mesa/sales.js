@@ -165,7 +165,7 @@
 
     const firstRanking = document.getElementById("firstContactRanking");
     if (firstRanking) firstRanking.innerHTML = FIRST_CONTACT.map((lead, index) => `
-      <article class="rank-card">
+      <article class="rank-card" data-segment="${esc(lead.segment)}" data-preview="${lead.preview ? "yes" : "no"}" data-slug="${esc(lead.slug)}">
         <div class="rank-card__num" aria-hidden="true">${pad(index + 1)}</div>
         <div class="rank-card__body">
           <div class="rank-card__top">
@@ -193,7 +193,7 @@
     `).join("");
 
     ranking.innerHTML = DATA.map((data) => `
-      <article class="rank-card">
+      <article class="rank-card" data-segment="${esc(data.segment)}" data-preview="${data.site ? "yes" : "no"}" data-slug="${esc(data.slug)}">
         <div class="rank-card__num" aria-hidden="true">${pad(data.rank)}</div>
         <div class="rank-card__body">
           <div class="rank-card__top">

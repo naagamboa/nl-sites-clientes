@@ -40,7 +40,7 @@ window.NL_LEADS_POA = [
   },
   {
     slug: "ak-lavagem", name: "AK Lavagem & Estética Automotiva", segment: "Estética automotiva", area: "Vila Nova",
-    preview: "previas/ak-lavagem/",
+    preview: "previas/ak-lavagem/?v=oferta-2",
     source: "https://localbrazil.net/empresa/ak-lavagem-e-estetica-automotiva-porto-alegre",
     contact: "https://wa.me/5551995710928", address: "Estrada Cristiano Kraemer, 151",
     fact: "A descrição comercial apresenta lavagem expressa, completa e limpeza interna. A ficha publica endereço e WhatsApp.",
@@ -53,7 +53,7 @@ window.NL_LEADS_POA = [
   },
   {
     slug: "open-parcao", name: "Spotco Parcão", segment: "Treinamento funcional", area: "Região do Parcão",
-    preview: "previas/open-parcao/",
+    preview: "previas/open-parcao/?v=oferta-2",
     source: "https://spotcompany.com.br/", supporting: ["https://linktr.ee/openparcao"],
     contact: "https://wa.me/555196398358", address: "Rua Comendador Caminha, 60",
     fact: "O site oficial apresenta a unidade Parcão, os formatos de treino e a primeira aula gratuita por WhatsApp.",
@@ -66,7 +66,7 @@ window.NL_LEADS_POA = [
   },
   {
     slug: "giocar-estetica", name: "Giocar Estética Automotiva", segment: "Estética e reparo automotivo", area: "Mário Quintana",
-    preview: "previas/giocar-estetica/",
+    preview: "previas/giocar-estetica/?v=oferta-2",
     source: "https://www.santoguia.com.br/empresa/porto-alegre-rs/giocar-estetica-automotiva-martelinho-de-ouro",
     supporting: ["https://poalista.com/automotivo/chapeacoes-pinturas/giocar-estetica-automotiva/"],
     contact: "https://wa.me/5551984421217", address: "Rua Germano Basler, 722",
@@ -80,7 +80,7 @@ window.NL_LEADS_POA = [
   },
   {
     slug: "fellas-barbearia", name: "Fellas Bar.bearia", segment: "Barbearia", area: "Higienópolis",
-    preview: "previas/fellas-barbearia/",
+    preview: "previas/fellas-barbearia/?v=oferta-2",
     source: "https://localbrazil.net/en/empresa/fellas-bar-bearia-porto-alegre", supporting: ["https://curtindoportoalegre.com.br/20-barbearias-em-porto-alegre/"],
     contact: "https://wa.me/5551993273864", address: "Rua Luzitana, 109",
     fact: "A apresentação comercial destaca cortes clássicos e atendimento infantil. Duas fontes divulgam o mesmo WhatsApp.",

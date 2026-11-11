@@ -25,3 +25,13 @@ Fontes consultadas em 10/11/2026. Imagens públicas referenciadas para demonstra
 | Espectro | Composição gráfica de movimento e caminhos paralelos de reserva. Identidade visual provisória, pois logo e fotos do estúdio não foram confirmados. | [ClassPass](https://classpass.com/studios/espectro-pilates-porto-alegre) |
 
 As fotos da Spotco são da rede e não identificam a unidade específica. As páginas usam uma folha de estilos compartilhada e JavaScript sem dependências. As fotos da galeria ampliam em diálogo nativo, com fechamento pelo teclado.
+
+## Revisão pela oferta comercial
+
+- **AK.** A oferta tem dois usos. Para rotina, a pessoa compara lavagens. Para estofados ou pintura, procura um serviço específico. O menu deixa os dois usos visíveis e encaminha para consulta com hora marcada.
+- **Spotco Parcão.** O produto de entrada é a experimental gratuita na unidade. O CTA permite marcar direto. A comparação explica turma, plano individual, grupo reduzido e personal.
+- **Giocar.** Quem chega precisa descrever o dano. A página aproxima checklist, orientação por tipo de dano e contato, sem prometer orçamento remoto.
+- **Fellas.** O site oficial destaca barba tradicional, combo e atendimento por horário ou chegada. A prévia dá destaque ao combo e responde quando ir ou marcar.
+- **Espectro.** Mantida a composição e a escolha direta de plataforma, que já atendem à decisão principal do visitante.
+
+Para as próximas prévias, registrar público, oferta de entrada, diferencial com fonte, dúvida antes do contato e ação principal antes de escolher a composição e as referências.

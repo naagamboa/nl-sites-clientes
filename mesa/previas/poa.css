@@ -175,3 +175,46 @@ address { font-size: 1.12rem; font-weight: 700; font-style: normal; }
 @media (max-width: 540px) {
   .espectro .options { grid-template-columns: 1fr; }
 }
+
+/* Service menus and booking flows follow the offer of each business. */
+.ak-menu { background: #d8effa; }
+.service-menu { margin: 1.8rem 0 0; border-top: 1px solid var(--line); }
+.service-menu > div { display: grid; grid-template-columns: minmax(11rem, .85fr) 1.25fr minmax(12rem, auto); align-items: baseline; gap: .3rem 1.4rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.service-menu dt { font: 700 clamp(1.45rem, 2.5vw, 2rem)/1.1 var(--display); }
+.service-menu dd, .fellas-services dd { margin: 0; }
+.service-menu dd:last-child { color: var(--accent); }
+.ak-photos { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; margin-top: 1.6rem; }
+.ak-photos .tile { width: 100%; aspect-ratio: 2; border-radius: 1rem 3px; }
+
+.hero-secondary { display: inline-block; margin: 1rem 0 0 1.1rem; font-weight: 700; }
+.spot-compare .training-grid { display: grid; grid-template-columns: 1fr 1fr; margin-top: 2rem; border-top: 2px solid var(--accent); }
+.training-grid article { padding: 1.4rem 1.6rem 1.4rem 0; }
+.training-grid article + article { border-left: 1px solid var(--line); padding-left: 1.6rem; }
+.training-grid h3 { font: 700 clamp(1.9rem, 4vw, 3.4rem)/1 var(--display); text-transform: uppercase; }
+.training-grid p { max-width: 44ch; margin: .8rem 0 1.1rem; }
+.training-grid a { color: var(--accent); }
+.spot .hero-media figcaption { background: #151614e8; color: var(--ink); padding: .25rem .45rem; width: fit-content; }
+
+.assessment { border: 1px solid var(--line); background: var(--paper); padding: clamp(1rem, 3vw, 2rem); }
+.assessment .shot-list { display: grid; margin: 0 0 1.2rem; border: 0; padding: .3rem 0; gap: .15rem; }
+.assessment .shot-list legend { padding: 0; }
+.assessment-note { margin-top: 1rem; font-size: .88rem; }
+
+.fellas-columns { display: grid; grid-template-columns: .78fr 1fr; gap: clamp(1.4rem, 6vw, 6rem); align-items: center; }
+.fellas-columns .hero-photo { aspect-ratio: .94; border-radius: 3px; }
+.fellas-services { margin: 1.6rem 0 0; }
+.fellas-services > div { padding: .9rem 0; border-top: 1px solid var(--line); }
+.fellas-services dt { font: 1.85rem/1.05 var(--serif); margin-bottom: .35rem; }
+.fellas-services > div:first-child { border-color: var(--accent); }
+.fellas-services a, .fellas-book a { color: var(--accent); }
+.fellas-hours { font-family: var(--mono); margin-top: .5rem; font-size: .86rem; }
+.fellas-book { margin-top: .75rem; }
+
+@media (max-width: 670px) {
+  .service-menu > div, .spot-compare .training-grid, .fellas-columns { grid-template-columns: 1fr; }
+  .training-grid article, .training-grid article + article { padding: 1rem 0; border-left: 0; }
+  .training-grid article + article { border-top: 1px solid var(--line); }
+  .fellas-columns > figure { order: 1; }
+  .fellas-columns .hero-photo { aspect-ratio: 1.55; }
+  .hero-secondary { margin-left: 0; display: block; width: fit-content; }
+}

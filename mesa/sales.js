@@ -1,6 +1,7 @@
 (() => {
   const DATA = Array.isArray(window.NL_VENDAS) ? window.NL_VENDAS : [];
-  const FIRST_CONTACT = Array.isArray(window.NL_PRIMEIRO_CONTATO) ? window.NL_PRIMEIRO_CONTATO : [];
+  const FIRST_CONTACT = [...(window.NL_LEADS_POA || []), ...(window.NL_PRIMEIRO_CONTATO || [])]
+    .sort((a, b) => weightedPotential(b) - weightedPotential(a));
   const bySlug = new Map(DATA.map((item) => [item.slug, item]));
   const firstContactBySlug = new Map(FIRST_CONTACT.map((item) => [item.slug, item]));
   let proposalText = "";
@@ -84,9 +85,13 @@
 
   const scoreLabel = (value) => value.toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
-  function potential(lead) {
+  function weightedPotential(lead) {
     const [need, use, delivery] = lead.ratings;
-    const knownTotal = need * 30 + use * 20 + delivery * 20;
+    return need * 30 + use * 20 + delivery * 20;
+  }
+
+  function potential(lead) {
+    const knownTotal = weightedPotential(lead);
     return {
       label: scoreLabel(knownTotal / 70),
       range: `${scoreLabel(knownTotal / 100)} a ${scoreLabel((knownTotal + 150) / 100)}`
@@ -94,6 +99,53 @@
   }
 
   const contactLabel = (lead) => lead.kind || "WhatsApp comercial";
+
+  function draftSections(lead) {
+    const contracts = window.NL_CONTRATOS;
+    if (!lead.amount || !contracts) return "";
+
+    const pack = {
+      id: "presenca",
+      nome: "Presença Profissional",
+      preco: `R$ ${lead.amount}`,
+      dias: "3 a 5",
+      escopo: `${lead.scope} Até cinco seções.`,
+      ajustes: "Uma rodada consolidada de ajustes simples dentro do escopo."
+    };
+    proposalText = [
+      `Proposta NL Sites para ${lead.name}`,
+      lead.idea,
+      `${pack.nome} · ${pack.preco}\n${pack.escopo} Inclui versão para celular, SEO básico e publicação após aprovação. ${pack.ajustes}`,
+      `Condições\nPrazo estimado de ${pack.dias} dias úteis após ${contracts.inicio}. ${contracts.pagamento} Domínio e hospedagem à parte. ${contracts.suporte}`,
+      `Alterações futuras\n${lead.extra} Serviços adicionais têm orçamento e aceite prévios. Referência de ${contracts.taxaAdicional}.`,
+      `Próximo passo\n${lead.question} Após alinharmos esse ponto, confirmamos o escopo e o orçamento.`
+    ].join("\n\n");
+    contractTexts.set(pack.id, contracts.minuta(lead, pack));
+    return `
+      <section class="script-block" id="proposta">
+        <div class="script-block__head">
+          <h2>Proposta <span>Rascunho comercial</span></h2>
+          <button class="btn btn--copy copy-btn" type="button" data-copy-proposal>Copiar proposta</button>
+        </div>
+        <p class="script-text">Confirme a necessidade, os materiais e o preço com o negócio antes de enviar.</p>
+        <details class="contract-version" ${window.location.hash === "#proposta" ? "open" : ""}>
+          <summary>${pack.nome} · referência de ${pack.preco}</summary>
+          <p class="script-text">${esc(proposalText)}</p>
+        </details>
+      </section>
+      <section class="script-block" id="contrato">
+        <div class="script-block__head">
+          <h2>Contrato <span>Minuta para revisão</span></h2>
+          <button class="btn btn--copy copy-btn" type="button" data-copy-contract="${pack.id}">Copiar minuta</button>
+        </div>
+        <p class="script-text">Preencha os dados das partes e confirme as condições na cópia após o aceite da proposta.</p>
+        <details class="contract-version" ${window.location.hash === "#contrato" ? "open" : ""}>
+          <summary>Ver cláusulas da minuta</summary>
+          <p class="script-text">${esc(contractTexts.get(pack.id))}</p>
+        </details>
+      </section>
+    `;
+  }
 
   /* Dashboard ------------------------------------------------------------- */
 
@@ -124,6 +176,10 @@
           <p class="rank-card__why">${esc(lead.idea)}</p>
           <div class="rank-card__actions">
             <a class="btn btn--accent" href="roteiro.html?slug=${encodeURIComponent(lead.slug)}">Abrir roteiro</a>
+            ${lead.amount ? `
+              <a class="btn btn--ghost" href="roteiro.html?slug=${encodeURIComponent(lead.slug)}#proposta">Ver proposta</a>
+              <a class="btn btn--ghost" href="roteiro.html?slug=${encodeURIComponent(lead.slug)}#contrato">Ver contrato</a>
+            ` : ""}
             <button class="btn btn--copy" type="button" data-copy-open="${esc(lead.slug)}" data-slug="${esc(lead.slug)}">Copiar abertura</button>
           </div>
         </div>
@@ -199,8 +255,9 @@
             <section class="discovery">
               <h2>Se houver abertura</h2>
               <p>${esc(lead.question)}</p>
-              <p>${lead.slug === "king-razor" ? "Validar a demanda da mentoria antes de estimar preço." : "Faixa inicial de R$ 600 a R$ 700 para uma página de até cinco seções com conteúdo aprovado e links existentes. Confirmar escopo e custos de publicação antes de cotar."}</p>
+              <p>${lead.amount ? esc(lead.scope) : lead.slug === "king-razor" ? "Validar a demanda da mentoria antes de estimar preço." : "Faixa inicial de R$ 600 a R$ 700 para uma página de até cinco seções com conteúdo aprovado e links existentes. Confirmar escopo e custos de publicação antes de cotar."}</p>
             </section>
+            ${draftSections(lead)}
             <section class="script-block">
               <h2>Evidências consultadas em 10/11/2026</h2>
               <p class="script-text">${esc(lead.fact)}</p>
@@ -228,6 +285,9 @@
           ${next ? `<a class="pager__next" href="roteiro.html?slug=${encodeURIComponent(next.slug)}"><span>Próximo →</span>${esc(next.name)}</a>` : ""}
         </nav>
       `;
+      if (["#proposta", "#contrato"].includes(window.location.hash)) {
+        document.getElementById(window.location.hash.slice(1))?.scrollIntoView();
+      }
       return;
     }
     const data = bySlug.get(slug);

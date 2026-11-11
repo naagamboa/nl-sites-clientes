@@ -10,7 +10,7 @@ img { display: block; max-width: 100%; object-fit: cover; }
 figure, h1, h2, h3, p { margin: 0; }
 .auto { --paper: #101314; --ink: #f6f3ea; --muted: #bac2bd; --line: #4a504c; --accent: #caf36c; --on-accent: #15190e; }
 .studio { --paper: #171714; --ink: #f9f3e9; --muted: #d0c4b8; --line: #564a42; --accent: #ff734b; --on-accent: #21120c; }
-.barber { --paper: #201814; --ink: #fff4e5; --muted: #dfcbb6; --line: #685447; --accent: #f2ce9f; --on-accent: #291b13; }
+.barber { --paper: #0c0d0f; --ink: #f6f7f9; --muted: #c4c9d0; --line: #414750; --accent: #e8ebef; --on-accent: #0c0d0f; --red: #d72e39; --blue: #2868c3; }
 .wrap { width: min(1320px, 100% - 96px); margin-inline: auto; }
 .preview-bar, .site-header, .site-footer { display: flex; justify-content: space-between; align-items: center; gap: 14px 24px; flex-wrap: wrap; }
 .preview-bar { background: #0d0d0d; color: #efebe3; padding: 4px max(24px, calc((100vw - 1320px)/2)); font-size: .75rem; }
@@ -54,15 +54,22 @@ h1 em, h2 em { color: var(--accent); font-style: normal; }
 .studio .hero-photo { aspect-ratio: 1.04; object-position: 36% center; }
 .studio h1 { font-family: Unbounded, Manrope, sans-serif; font-size: clamp(2.8rem, 6.5vw, 6.25rem); letter-spacing: -.05em; }
 
-.barber-hero { padding-block: clamp(32px, 5vw, 74px); border-top: 1px solid var(--line); }
+.barber-hero { padding-block: clamp(32px, 5vw, 74px); border-top: 1px solid var(--line); background: radial-gradient(ellipse at 18% 50%, #22252b 0%, transparent 55%); }
 .barber-grid { display: grid; grid-template-columns: .82fr 1.18fr; align-items: center; gap: clamp(24px, 5vw, 80px); }
 .barber h1, .barber h2 { font-family: "Bodoni Moda", Georgia, serif; font-weight: 500; letter-spacing: -.06em; }
 .barber h1 { font-size: clamp(3.65rem, 7vw, 7.2rem); }
 .barber h1 em, .barber h2 em { font-style: italic; }
+.barber h1 span { display: block; margin-bottom: .65em; font: 800 clamp(1rem, 2.05vw, 1.8rem)/1 Manrope, sans-serif; letter-spacing: .2em; text-transform: uppercase; }
+.barber h1 em { display: block; }
+.barber .eyebrow { color: var(--muted); }
+.barber .site-header { position: relative; }
+.barber .site-header::after { content: ""; position: absolute; bottom: -2px; left: 0; width: 68px; height: 3px; background: linear-gradient(90deg, var(--red) 33%, var(--accent) 33% 66%, var(--blue) 66%); }
+.barber .hero-copy .button { border-left: 4px solid var(--red); }
 .barber .hero-photo { aspect-ratio: 1.19; object-position: 30% center; }
 .barber figure { border: 1px solid var(--line); padding: 10px; }
 .barber figcaption { margin: 8px 2px 0; font-size: .8rem; color: var(--muted); }
-.barber-house { background: #efe0ca; color: #281a12; --muted: #4f3a2e; --accent: #693c26; }
+.barber-house { background: #e7e9ed; color: #17191d; --muted: #353d48; --accent: #153f83; }
+.barber-house img { outline: 1px solid #9da5af; outline-offset: 9px; }
 .house-grid { grid-template-columns: minmax(120px, 300px) 1fr; }
 .house-grid img { border-radius: 50%; width: min(100%, 230px); height: auto; aspect-ratio: 1; justify-self: center; }
 
@@ -123,7 +130,7 @@ button:focus-visible, summary:focus-visible { outline: 3px solid currentColor; o
 .barber .gallery-tile:last-child img { object-fit: contain; background: #000; }
 .questions { background: #151716; border-block: 1px solid var(--line); }
 .studio .questions { background: #251d19; }
-.barber .questions { background: #35251d; }
+.barber .questions { background: #171a20; }
 .faq-list details { border-top: 1px solid var(--line); }
 .faq-list details:last-child { border-bottom: 1px solid var(--line); }
 summary { cursor: pointer; padding: 16px 0; font-weight: 800; }
@@ -149,7 +156,8 @@ summary { cursor: pointer; padding: 16px 0; font-weight: 800; }
 .first-visit p { margin-top: 8px; }
 .quote-guide { background: #252f29; padding-block: clamp(56px, 9vw, 115px); }
 .quote-guide p:not(.eyebrow) { max-width: 42ch; color: var(--muted); }
-.barber .chooser { background: #37261e; color: #fff4e5; --line: #806a58; --accent: #f2ce9f; --on-accent: #291b13; }
+.barber .chooser { background: #14171c; }
+.barber .choice-panel { border-top: 3px solid var(--blue); }
 @media (max-width: 780px) {
   .chooser-grid, .gallery-grid, .studio .gallery-grid, .first-visit ol { grid-template-columns: 1fr; }
   .quick span { padding: 10px; font-size: .77rem; line-height: 1.35; }

@@ -6,13 +6,13 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Pretinhos · Estética automotiva em Porto Alegre.">
   <title>Pretinhos · Estética automotiva | Prévia NL Sites</title>
-  <link rel="stylesheet" href="../previa.css?v=2">
+  <link rel="stylesheet" href="../previa.css?v=3">
 </head>
 <body class="auto">
   <aside class="preview-bar"><span>Prévia NL Sites</span><a href="../../roteiro.html?slug=pretinhos-estetica">Voltar à ficha ↗</a></aside>
   <header class="site-header wrap">
     <a class="brand" href="./"><span>Pretinhos<small>Estética automotiva</small></span></a>
-    <nav aria-label="Nesta página"><a href="#atendimento">Atendimento</a><a href="#local">Localização</a></nav>
+    <nav aria-label="Nesta página"><a href="#atendimento">Serviços</a><a href="#galeria">O box</a><a href="#local">Como chegar</a></nav>
   </header>
   <main>
     <section class="auto-hero hero">
@@ -24,17 +24,70 @@
         <a class="button" href="https://wa.me/5551994979867">Agendar estética <span aria-hidden="true">↗</span></a>
       </div>
     </section>
-    <section class="split-section wrap" id="atendimento">
-      <div><p class="eyebrow">Atendimento</p><h2>Escolha como<br>quer ser atendido.</h2></div>
-      <div class="service-list">
-        <article><h3>Lavagem simples</h3><p>Venha direto ao box. A lavagem simples funciona por ordem de chegada.</p><a class="route" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Faria%20Santos%2081%20Porto%20Alegre">Abrir rota ↗</a></article>
-        <article><h3>Estética automotiva</h3><p>Conte à equipe o que você quer fazer no carro e combine o horário pelo WhatsApp.</p><a href="https://wa.me/5551994979867">Consultar disponibilidade ↗</a></article>
+    <div class="quick"><div class="wrap"><span>Lavagem simples por chegada</span><span>Estética com horário marcado</span><span>Rua Faria Santos, 81</span></div></div>
+    <section class="chooser" id="atendimento">
+      <div class="wrap chooser-grid" data-reveal>
+        <h2>Qual cuidado seu carro precisa?</h2>
+        <div data-chooser>
+          <div class="choices" data-choices aria-label="Qual cuidado seu carro precisa?">
+            <button type="button" id="choice-0" aria-controls="choice-panel-0">Lavagem simples</button>
+            <button type="button" id="choice-1" aria-controls="choice-panel-1">Estética automotiva</button>
+          </div>
+          <article class="choice-panel" id="choice-panel-0" data-panel>
+            <h3>Passe direto para lavar</h3><p>Na lavagem simples, o atendimento segue a ordem de chegada. Use a rota para encontrar o box na Faria Santos.</p>
+            <a class="route" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Faria+Santos+81+Porto+Alegre">Traçar rota ↗</a>
+          </article>
+          <article class="choice-panel" id="choice-panel-1" data-panel>
+            <h3>Combine o serviço antes de vir</h3><p>Informe o modelo do carro, o cuidado que procura e o dia que funciona para você. A equipe confirma o que pode fazer e o horário disponível.</p>
+            <a class="route" href="https://wa.me/5551994979867?text=Ol%C3%A1%21%20Quero%20consultar%20um%20hor%C3%A1rio%20para%20est%C3%A9tica%20automotiva.">Consultar pelo WhatsApp ↗</a>
+          </article>
+        </div>
       </div>
     </section>
-    <section class="visit photo-visit" id="local">
-      <div class="wrap visit-grid"><img src="box.jpg" alt="Veículo no box identificado da Pretinhos" loading="lazy"><div><p class="eyebrow">Em Petrópolis</p><h2>Encontre<br>o nosso box.</h2><p>Rua Faria Santos, 81 · Porto Alegre</p><a class="route" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Faria%20Santos%2081%20Porto%20Alegre">Abrir rota ↗</a></div></div>
+    <section class="gallery wrap" id="galeria" data-reveal>
+      <h2>Por dentro do box</h2>
+      <div class="gallery-grid">
+        <a class="gallery-tile" href="hero.jpg" data-gallery><img src="hero.jpg" alt="Carro vermelho no box da Pretinhos" loading="lazy"><span>Carro vermelho no box da Pretinhos <b aria-hidden="true">↗</b></span></a>
+        <a class="gallery-tile" href="box.jpg" data-gallery><img src="box.jpg" alt="Carro preto no box identificado da Pretinhos" loading="lazy"><span>Carro preto no box identificado da Pretinhos <b aria-hidden="true">↗</b></span></a>
+      </div>
+    </section>
+    <section class="quote-guide">
+      <div class="wrap chooser-grid" data-reveal>
+        <div><p class="eyebrow">Estética com hora marcada</p><h2>Peça um orçamento para o seu carro.</h2></div>
+        <div>
+          <p>Tenha em mãos o modelo do carro e diga qual parte você quer cuidar. Se uma foto ajudar a explicar o pedido, envie na conversa com a equipe.</p>
+          <a class="button" href="https://wa.me/5551994979867?text=Ol%C3%A1%21%20Quero%20pedir%20um%20or%C3%A7amento%20de%20est%C3%A9tica%20para%20meu%20carro.">Pedir orçamento ↗</a>
+        </div>
+      </div>
+    </section>
+    <section class="questions">
+      <div class="wrap chooser-grid" data-reveal>
+        <h2>Dúvidas antes da visita</h2>
+        <div class="faq-list">
+          <details><summary>Preciso marcar para lavar?</summary><p>Para lavagem simples, o atendimento é por ordem de chegada. Para estética automotiva, agende pelo WhatsApp.</p></details>
+          <details><summary>Como saber o valor do serviço de estética?</summary><p>Informe o modelo do veículo e o serviço desejado pelo WhatsApp para pedir orçamento.</p></details>
+          <details><summary>Onde fica a unidade desta página?</summary><p>Na Rua Faria Santos, 81, em Petrópolis, Porto Alegre. Use a rota abaixo.</p></details>
+        </div>
+      </div>
+    </section>
+    <section class="visit wrap" id="local">
+      <div class="visit-grid" data-reveal>
+        <div><p class="eyebrow">Como chegar</p><h2>Combine seu próximo cuidado.</h2></div>
+        <div class="visit-card">
+          <address>Rua Faria Santos, 81 · Petrópolis<br>Porto Alegre</address>
+          <a class="route" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Faria%20Santos%2081%20Porto%20Alegre">Traçar rota ↗</a>
+          <details class="map-details" data-map><summary>Ver mapa nesta página</summary><iframe title="Mapa de Rua Faria Santos, 81 · Petrópolis" data-src="https://www.google.com/maps?q=Rua%20Faria%20Santos%2081%20Porto%20Alegre&amp;output=embed&amp;hl=pt-BR"></iframe></details>
+          <a class="button" href="https://wa.me/5551994979867">Falar pelo WhatsApp ↗</a>
+        </div>
+      </div>
     </section>
   </main>
   <footer class="site-footer wrap"><span>Pretinhos · Porto Alegre</span><a href="https://localbrazil.net/empresa/pretinhos-estetica-automotiva-porto-alegre">Fonte das fotos ↗</a></footer>
+  <dialog class="gallery-dialog" aria-label="Galeria de fotos">
+    <form method="dialog"><button type="submit" aria-label="Fechar galeria">Fechar ×</button></form>
+    <figure><img alt=""><figcaption></figcaption></figure>
+    <div class="gallery-controls"><button type="button" data-direction="-1">← Anterior</button><button type="button" data-direction="1">Próxima →</button></div>
+  </dialog>
+  <script src="../previa.js?v=3" defer></script>
 </body>
 </html>

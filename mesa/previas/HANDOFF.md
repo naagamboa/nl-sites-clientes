@@ -4,6 +4,8 @@ As páginas estáticas ficam nesta pasta e são abertas pelas fichas da Mesa. Us
 
 A segunda versão usa ZM como referência para a abertura fotográfica da Pretinhos, MOV para a composição esportiva do Link e Art of Life para a tipografia e os blocos editoriais da São José. A Pretinhos ganhou uma segunda foto do box e o Link ganhou uma foto da fachada, obtidas nas fontes da tabela.
 
+A terceira versão incorpora a navegação por abas da MOV e o diálogo de fotos da ZM. Cada página tem conteúdo próprio sobre a visita, perguntas expansíveis e mapa carregado sob demanda. A Pretinhos tem um guia de orçamento, o Link tem o passo a passo da primeira aula e a São José apresenta a história e o emblema da casa.
+
 | Negócio | Direção e ação principal | Referência visual |
 | --- | --- | --- |
 | Pretinhos | Composição escura inspirada no box de lavagem. A página diferencia lavagem por chegada e estética por horário. | Foto do box com a identificação Pretinhos na [galeria da ficha pública](https://localbrazil.net/empresa/pretinhos-estetica-automotiva-porto-alegre). |

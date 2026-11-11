@@ -6,13 +6,13 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="São José · Barbearia em Porto Alegre.">
   <title>São José · Barbearia | Prévia NL Sites</title>
-  <link rel="stylesheet" href="../previa.css?v=2">
+  <link rel="stylesheet" href="../previa.css?v=3">
 </head>
 <body class="barber">
   <aside class="preview-bar"><span>Prévia NL Sites</span><a href="../../roteiro.html?slug=barbearia-sao-jose">Voltar à ficha ↗</a></aside>
   <header class="site-header wrap">
     <a class="brand" href="./"><img src="logo.jpg" alt="" width="52" height="52"><span>São José<small>Barbearia</small></span></a>
-    <nav aria-label="Nesta página"><a href="#casa">A barbearia</a><a href="#local">Visite</a></nav>
+    <nav aria-label="Nesta página"><a href="#casa">A casa</a><a href="#galeria">O salão</a><a href="#local">Visite</a></nav>
   </header>
   <main>
     <section class="barber-hero hero">
@@ -26,16 +26,73 @@
         <figure><img class="hero-photo" src="hero.jpg" alt="Salão da Barbearia São José com o emblema da casa na parede" fetchpriority="high"><figcaption>O salão da São José, no Sarandi</figcaption></figure>
       </div>
     </section>
+    <div class="quick"><div class="wrap"><span>Desde 1960</span><span>Sarandi · Porto Alegre</span><span>Rua Xavier de Carvalho, 32</span></div></div>
     <section class="barber-house" id="casa">
-      <div class="wrap house-grid">
-        <img src="logo.jpg" alt="Emblema da Barbearia São José, desde 1960" width="230" height="230" loading="lazy">
-        <div><p class="eyebrow">A casa</p><h2>Barbearia de bairro.<br><em>Corte do seu estilo.</em></h2><p>Antes de sair, consulte os horários com a equipe. Na mesma conversa, você pode perguntar como funciona o cartão fidelidade.</p><a class="route" href="https://wa.me/message/YZMQP6MZDDTOJ1">Consultar horários e fidelidade ↗</a></div>
+      <div class="wrap house-grid" data-reveal>
+        <img src="logo.jpg" alt="Emblema da Barbearia São José" width="230" height="230" loading="lazy">
+        <div>
+          <p class="eyebrow">Sarandi, Porto Alegre</p>
+          <h2>Desde <em>1960.</em></h2>
+          <p>O emblema da São José ocupa um lugar na parede do salão, entre as placas de Grêmio e Inter. É esse o ambiente que recebe quem chega à barbearia da Rua Xavier de Carvalho.</p>
+          <a class="route" href="#galeria">Ver o salão ↘</a>
+        </div>
+      </div>
+    </section>
+    <section class="chooser" id="atendimento">
+      <div class="wrap chooser-grid" data-reveal>
+        <h2>Antes de sentar na cadeira</h2>
+        <div data-chooser>
+          <div class="choices" data-choices aria-label="Antes de sentar na cadeira">
+            <button type="button" id="choice-0" aria-controls="choice-panel-0">Próximo corte</button>
+            <button type="button" id="choice-1" aria-controls="choice-panel-1">Cartão fidelidade</button>
+          </div>
+          <article class="choice-panel" id="choice-panel-0" data-panel>
+            <h3>Combine seu próximo corte</h3><p>Se tiver uma referência de corte, mande para a barbearia quando conversar sobre o atendimento. Consulte os horários diretamente com a equipe.</p>
+            <a class="route" href="https://wa.me/message/YZMQP6MZDDTOJ1">Consultar horários ↗</a>
+          </article>
+          <article class="choice-panel" id="choice-panel-1" data-panel>
+            <h3>Pergunte pelo cartão fidelidade</h3><p>O cartão é divulgado no perfil da São José. A equipe pode orientar como participar e confirmar as regras em vigor.</p>
+            <a class="route" href="https://wa.me/message/YZMQP6MZDDTOJ1">Perguntar sobre o cartão ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="gallery wrap" id="galeria" data-reveal>
+      <h2>O salão da São José</h2>
+      <div class="gallery-grid">
+        <a class="gallery-tile" href="hero.jpg" data-gallery><img src="hero.jpg" alt="Interior da São José com o emblema da casa" loading="lazy"><span>Interior da São José com o emblema da casa <b aria-hidden="true">↗</b></span></a>
+        <a class="gallery-tile" href="logo.jpg" data-gallery><img src="logo.jpg" alt="Emblema da Barbearia São José, desde 1960" loading="lazy"><span>Emblema da Barbearia São José, desde 1960 <b aria-hidden="true">↗</b></span></a>
+      </div>
+    </section>
+    <section class="questions">
+      <div class="wrap chooser-grid" data-reveal>
+        <h2>Dúvidas antes da visita</h2>
+        <div class="faq-list">
+          <details><summary>Como consulto os horários?</summary><p>O perfil da barbearia indica o WhatsApp para essa consulta. O telefone fixo também está na seção de localização.</p></details>
+          <details><summary>Onde fica a São José?</summary><p>Rua Xavier de Carvalho, 32, loja 101, no Sarandi.</p></details>
+          <details><summary>Como funciona o cartão fidelidade?</summary><p>Consulte diretamente a equipe para confirmar as condições atuais.</p></details>
+        </div>
       </div>
     </section>
     <section class="visit wrap" id="local">
-      <div class="visit-grid"><div><p class="eyebrow">Como chegar</p><h2>São José<br>no Sarandi.</h2></div><div><p>Rua Xavier de Carvalho, 32, loja 101<br>Porto Alegre</p><a class="route" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Xavier%20de%20Carvalho%2032%20Porto%20Alegre">Abrir rota ↗</a><p><a href="tel:+555133158261">(51) 3315-8261</a></p></div></div>
+      <div class="visit-grid" data-reveal>
+        <div><p class="eyebrow">Como chegar</p><h2>Seu próximo corte é na São José.</h2></div>
+        <div class="visit-card">
+          <address>Rua Xavier de Carvalho, 32, loja 101 · Sarandi<br>Porto Alegre</address>
+          <a class="route" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Xavier%20de%20Carvalho%2032%20Porto%20Alegre">Traçar rota ↗</a>
+          <a class="route" href="tel:+555133158261">Ligar · (51) 3315-8261</a>
+          <details class="map-details" data-map><summary>Ver mapa nesta página</summary><iframe title="Mapa de Rua Xavier de Carvalho, 32, loja 101 · Sarandi" data-src="https://www.google.com/maps?q=Rua%20Xavier%20de%20Carvalho%2032%20Porto%20Alegre&amp;output=embed&amp;hl=pt-BR"></iframe></details>
+          <a class="button" href="https://wa.me/message/YZMQP6MZDDTOJ1">Falar pelo WhatsApp ↗</a>
+        </div>
+      </div>
     </section>
   </main>
   <footer class="site-footer wrap"><span>São José · Porto Alegre</span><a href="https://bio.site/barbeariasaojose1960">Fonte das fotos ↗</a></footer>
+  <dialog class="gallery-dialog" aria-label="Galeria de fotos">
+    <form method="dialog"><button type="submit" aria-label="Fechar galeria">Fechar ×</button></form>
+    <figure><img alt=""><figcaption></figcaption></figure>
+    <div class="gallery-controls"><button type="button" data-direction="-1">← Anterior</button><button type="button" data-direction="1">Próxima →</button></div>
+  </dialog>
+  <script src="../previa.js?v=3" defer></script>
 </body>
 </html>
